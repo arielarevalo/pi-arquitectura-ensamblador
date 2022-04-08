@@ -1,0 +1,40 @@
+Propuesta
+	1. Tema:
+		Este proyecto consiste en simular un semáforo. Intentaremos cumplir con los requisitos 			de arquitectura y algorítmicos para lograr esta funcionalidad. {Insertar hablada sobre 			el hardware lógico de los semáforos y su necesidad en la sociedad}.
+		
+	2. Descripción general de lo que es un semáforo. {Semáforo de dos vías con cruce peatonal en 	todas las esquinas, giro a la izquierda en ambos carriles y luz amarilla de transición}
+	
+	**** Ser ambiguo en esta sección porque no sabemos la vdd jejepz ****
+	
+	3. Requerimientos funcionales:
+		Descripción detallada del funcionamiento. Necesito que literalmente describa el ciclo 			del semáforo. Esto es palabra sagrada. Que no choquen lol.
+		
+	4. Requerimientos de arquitectura:
+		Descripción detallada de la implementación. El objetivo del proyecto es simular el 			funcionamiento del hardware y abordar los problemas que este presenta con código en 		Lenguaje Ensamblador. En C/C++ se trabaja la interfaz y el flujo de los 			componentes.
+		
+		Entre en detalle. Dese gusto. Diga: "Un semáforo hace esto... Ensamblador."
+		
+			* Simular 4 botones { El boton deja un banderin en una direccion de memoria }
+			* Orquestrador { Controla el flujo, lee el banderin del boton }
+			* Temporizador
+			* Iluminador { Maneja las direcciones de memoria para las chorrocientas luces }
+	
+	5. Diagrama de bloques.
+	
+	*********************************************************************
+		
+	. Diagrama de bloques agnostico
+
+
+
+Preguntar como visualizar el trabajo
+Preguntar como correr ensamblador junto con Logisim
+Preguntar cual es el entregable (Si el Github como tal es suficiente)
+Preguntarle al profe wtf se supone que hagamos
+
+Cada nuevo informe debe incluir todo el material presentado en las etapas anteriores.
+
+Note que cada grupo debe incluir la lista de los nombres y carné de los integrantes del
+grupo y el título del tema seleccionado
+
+
