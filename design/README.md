@@ -1,6 +1,10 @@
 # Diseño de Circuito de Semáforos
 
-## Requisitos de implementación
+## Lineamientos de implementación
+
+Los lineamientos podrán cambiar durante el transcurso de las diversas fases del proyecto. Por favor no esperar que el contenido de este documento sea estático, y mantenerse vigilante de algún cambio a su contenido en cada Pull Request.
+
+* Hacer buen uso de los commits y su mensaje. Se trabajará en español hasta donde sea factible/razonable. Por favor documentar **siempre** en voz *pasiva* o *imperativa*, dependiendo del caso.
 
 * Escribir nombres de circuito en minúsculas, en español, con palabras separadas por espacios. Sin tildes. Para los nombres de *branch*, usar guión bajo ("_") para separar las palabras. Siempre sin tildes.
 
@@ -10,7 +14,7 @@
 
 #### Controlador (de) Botones
 
-* El controlador debe esperar entrada de pulso, y emitir salida de señal constante. Esto dado que la forma más directa de simular un botón en Logisim es con el periférico incluido en la biblioteca por defecto para `Button`, el cual emite pulso, y la ausencia de alguna forma de programáticamente cambiar el estado de un elemento `Input` dentro de Logisim. Los botones en sí irían fuera del controlador a nivel de `main`.
+* El controlador debe esperar entrada de pulso, y emitir salida de señal constante. Esto dado que la forma más directa de simular un botón en Logisim es con el periférico incluido en la biblioteca por defecto para `Button`, el cual emite pulso, y la ausencia de alguna forma de programáticamente cambiar el estado de un elemento `Input` dentro de Logisim. Los botones en sí han de ir fuera del controlador a nivel de `main`.
 
 * El controlador deberá presentar un funcionamiento de *switch*. La funcionalidad del controlador debe ser capaz de garantizar que las entradas del codificador 4x2 solamente reciban 1 de las 4 posibles entradas a la vez.
 
