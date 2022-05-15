@@ -1,4 +1,6 @@
-Grupo: La Dinastía  
+# Semáforo de Tránsito
+
+Grupo: La Dinastía
 
 Ariel Arévalo Alvarado B50562  
 
