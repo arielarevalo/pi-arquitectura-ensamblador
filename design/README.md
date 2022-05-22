@@ -44,11 +44,11 @@ Los lineamientos podrán cambiar durante el transcurso de las diversas fases del
 
 * Dado lo anterior, los semáforos deben presentar alguna memoria, manteniendo su estado de forma autónoma hasta recibir otro pulso. Esto se puede implementar con elementos básicos de circuitos secuenciales y/o utilizando circuitos existentes en la biblioteca.
 
-* Las salidas del circuito de los semáforos deben ir etiquetadas, indicando cuál sálida representa cada fase de su ciclo (e.g. rojo fijo, verde fijo, amarillo fijo).
+* Las salidas del circuito de los semáforos deben ir etiquetadas, indicando cuál sálida representa cada fase de su ciclo.
 
-* Tránsito: Este semáforo debe presentar un ciclo de rojo fijo -> verde fijo -> amarillo fijo -> rojo fijo.
+* Tránsito: Este semáforo debe presentar un ciclo de rojo fijo -> verde fijo -> amarillo fijo.
 
-* Peatonal: Este semáforo debe presentar un ciclo de rojo fijo -> verde fijo -> verde parpadeando -> rojo fijo.
+* Peatonal: Este semáforo debe presentar un ciclo de rojo fijo -> verde fijo -> verde parpadeando.
 
 ## Apéndices
 
