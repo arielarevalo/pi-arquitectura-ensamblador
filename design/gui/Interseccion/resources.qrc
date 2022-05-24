@@ -1,0 +1,49 @@
+<RCC>
+    <qresource prefix="/PeatonalVerde">
+        <file>Peatonales/Verde.png</file>
+        <file>Peatonales/VerdeVertical.png</file>
+        <file>Peatonales/SV.png</file>
+    </qresource>
+    <qresource prefix="/PeatonalRojo">
+        <file>Peatonales/Rojo.png</file>
+        <file>Peatonales/RojoVertical.png</file>
+        <file>Peatonales/SR.png</file>
+    </qresource>
+    <qresource prefix="/BotonPeatonal">
+        <file>Peatonales/BTNPeatonal.png</file>
+    </qresource>
+    <qresource prefix="/VehicularVerde">
+        <file>Vehiculares/EsteVerde.png</file>
+        <file>Vehiculares/IzqNorteVerde.png</file>
+        <file>Vehiculares/IzqSurVerde.png</file>
+        <file>Vehiculares/NorteVerde.png</file>
+        <file>Vehiculares/OesteVerde.png</file>
+        <file>Vehiculares/SurVerde.png</file>
+		<file>Vehiculares/VerdeVN.png</file>
+		<file>Vehiculares/VerdeHE.png</file>
+		<file>Vehiculares/VerdeHO.png</file>
+		<file>Vehiculares/VerdeVS.png</file>
+    </qresource>
+    <qresource prefix="/VehicularAmarillo">
+        <file>Vehiculares/EsteAmarillo.png</file>
+        <file>Vehiculares/IzqNorteAmarillo.png</file>
+        <file>Vehiculares/IzqSurAmarillo.png</file>
+        <file>Vehiculares/NorteAmarillo.png</file>
+        <file>Vehiculares/OesteAmarillo.png</file>
+        <file>Vehiculares/SurAmarillo.png</file>
+		<file>Vehiculares/AmarilloV.png</file>
+		<file>Vehiculares/AmarilloH.png</file>
+    </qresource>
+    <qresource prefix="/VehicularRojo">
+        <file>Vehiculares/EsteRojo.png</file>
+        <file>Vehiculares/IzqNorteRojo.png</file>
+        <file>Vehiculares/IzqSurRojo.png</file>
+        <file>Vehiculares/NorteRojo.png</file>
+        <file>Vehiculares/OesteRojo.png</file>
+        <file>Vehiculares/SurRojo.png</file>
+		<file>Vehiculares/RojoVN.png</file>
+		<file>Vehiculares/RojoHE.png</file>
+		<file>Vehiculares/RojoHO.png</file>
+		<file>Vehiculares/RojoVS.png</file>
+    </qresource>
+</RCC>
