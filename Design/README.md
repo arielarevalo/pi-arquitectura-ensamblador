@@ -60,7 +60,7 @@ Todos los semáforos peatonales presentan una pareja, por lo cual sólo van nume
 |------------------|-----------|
 | 0                | 0,1       |
 | 1                | 2         |
-| 2                | 4,3       |
+| 2                | 3,4       |
 | 3                | 5         |
 | Fase (Peatonal)  | Semáforos |
 | 4                | 5,6       |
@@ -83,8 +83,8 @@ Todos los semáforos peatonales presentan una pareja, por lo cual sólo van nume
 
 #### Posición de los semáforos
 
-![Numeración de los semáforos](./assets/images/semaforos.png)
+![Numeración de los semáforos](./Resources/Images/semaforos.png)
 
 #### Diseño de la intersección
 
-![Diseño de la intersección](./assets/images/interseccion.png)
+![Diseño de la intersección](./Resources/Images/interseccion.png)
