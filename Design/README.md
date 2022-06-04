@@ -1,5 +1,7 @@
 # Diseño de Circuito de Semáforos
 
+NOTA: De momento se espera tener esto listo antes del 11 de Junio, con el 8 de Junio como fecha optimista de pre-entrega.
+
 ## Lineamientos de implementación
 
 Los lineamientos podrán cambiar durante el transcurso de las diversas fases del proyecto. Por favor no esperar que el contenido de este documento sea estático, y mantenerse vigilante de algún cambio a su contenido en cada Pull Request.
@@ -10,63 +12,33 @@ Los lineamientos podrán cambiar durante el transcurso de las diversas fases del
 
 * Intentar respetar la escala de los circuitos existentes, en cuanto a espacio entre componentes (i.e. largo de cables).
 
-* De ser posible, mantener una copia aparte del archivo `circuitos.circ`, ya que se han visto artefactos de merge que parecen estar deformando los circuitos.
+#### Diseño de la intersección
 
-#### Controlador (de) Botones
+![Diseño de la intersección](./Resources/Images/Interseccion.png)
 
-* El controlador debe esperar entrada de pulso, y emitir salida de señal constante. Esto dado que la forma más directa de simular un botón en Logisim es con el periférico incluido en la biblioteca por defecto para `Button`, el cual emite pulso, y la ausencia de alguna forma de programáticamente cambiar el estado de un elemento `Input` dentro de Logisim. Los botones en sí han de ir fuera del controlador a nivel de `main`.
+#### Posición de los semáforos
 
-* El controlador deberá presentar un funcionamiento de *switch*. La funcionalidad del controlador debe ser capaz de garantizar que las entradas del codificador 4x2 solamente reciban 1 de las 4 posibles entradas a la vez.
-
-* Se sugiere fuertmente utilizar/modificar los elementos existentes en la biblioteca del proyecto para lograr convertir el pulso de un `Button` en una corriente constante, la cual a su vez puede ser cortada por la activación de alguna otra corriente. Una solución que nace de los supuestos es una donde cada botón se conecta inicialmente a un `Toggle`, el cual conserva el estado de *activado* para ese botón, y cuyo estado puede ser modificado por un pulso de cualquier otro de los botones.
-
-#### Codificadores
-
-* Los codificadores deben esperar entrada de señal constante, y emitir salida de señal constante.
-
-* Las entradas y salidas del circuito de los codificadores deben ir etiquetadas, indicando cuál entrada/salida representa la 0,1,2,.. etc.
-
-#### Validador
-
-* El validador debe esperar entrada de señal constante, y emitir salida de señal constante.
-
-* El validador debe recibir señal de escritura del coordinador, y emitir señales de salida, así como banderín de duplicado cuando la entrada actual es idéntica a la salida actual.
-
-#### Enrutador
-
-* El enrutador debe esperar entrada de señal constante, y emitir salida de señal constante.
-
-* Las entradas y salidas del circuito del enrutador deben ir etiquetadas, indicando cuál entrada/salida representa la 0,1,2,.. etc.
-
-#### Semáforos
-
-* Los semáforos deben esperar entrada de pulso, e incrementar en uno la fase de su ciclo como resultado.
-
-* Dado lo anterior, los semáforos deben presentar alguna memoria, manteniendo su estado de forma autónoma hasta recibir otro pulso. Esto se puede implementar con elementos básicos de circuitos secuenciales y/o utilizando circuitos existentes en la biblioteca.
-
-* Las salidas del circuito de los semáforos deben ir etiquetadas, indicando cuál sálida representa cada fase de su ciclo.
-
-* Tránsito: Este semáforo debe presentar un ciclo de rojo fijo -> verde fijo -> amarillo fijo.
-
-* Peatonal: Este semáforo debe presentar un ciclo de rojo fijo -> verde fijo -> verde parpadeando.
-
-## Apéndices
+![Numeración de los semáforos](./Resources/Images/Semaforos.png)
 
 #### Leyenda de Rutas por Fase
 
 Todos los semáforos peatonales presentan una pareja, por lo cual sólo van numerados una vez.
 
+<table>
+<tr><td>
+
 | Fase (Vehicular) | Semáforos |
 |------------------|-----------|
 | 0                | 0,1       |
-| 1                | 2         |
+| 1                | 2,5       |
 | 2                | 3,4       |
-| 3                | 5         |
 | Fase (Peatonal)  | Semáforos |
-| 4                | 5,6       |
-| 5                | 0,7       |
-| 6                | 2,8       |
-| 7                | 3,9       |
+| 3                | 5,6       |
+| 4                | 0,7       |
+| 5                | 2,8       |
+| 6                | 3,9       |
+
+</td><td>
 
 | Semáforo | Número de conexiones |
 |----------|----------------------|
@@ -81,10 +53,24 @@ Todos los semáforos peatonales presentan una pareja, por lo cual sólo van nume
 | 8        | 1                    |
 | 9        | 1                    |
 
-#### Posición de los semáforos
+</td></tr> </table>
 
-![Numeración de los semáforos](./Resources/Images/semaforos.png)
+#### Controlador (de) Botones
 
-#### Diseño de la intersección
+* El controlador se ve reducido, en esta fase, a un programa que al correr revisa si uno de cuatro bytes en un arreglo en memoria es diferente a cero. De ser así, cambia todos los valores en un arreglo de salida a cero, y luego cambia el valor en el arreglo de salida de misma posición que el valor que es diferente a cero en el arreglo de entrada. Luego, cambia todos los valores del arreglo de entrada a cero.
 
-![Diseño de la intersección](./Resources/Images/interseccion.png)
+#### Codificadores
+
+* Los codificadores, dependiendo de su dirección, convierten a/desde una dirección de byte única en memoria, que representa un valor único binario, desde/a un arreglo de bytes en memoria de tamaño *k*, para representar los *k* diferentes estados de entrada/salida.
+
+#### Validador
+
+* El validador consiste en un programa que compara el valor en un arreglo de entrada de dos bytes en memoria con el valor en un arreglo de salida de dos bytes en memoria. Si los valores son iguales, cambia una dirección de byte en memoria *(DUPL)* a uno, si no son iguales, la cambia a cero. Además, existe otra dirección de byte en memoria como banderín de escritura *(WRITE)*. Si el banderín de escritura es diferente de cero, escribe los valores de entrada al arreglo de salida.
+
+#### Enrutador
+
+* La funcionalidad del enrutador se ha visto absorbida por la interfaz gráfica.
+
+#### Semáforos
+
+* La funcionalidad de los semáforos se ha visto absorbida por la interfaz gráfica.
