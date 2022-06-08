@@ -57,17 +57,17 @@ Todos los semáforos peatonales presentan una pareja, por lo cual sólo van nume
 
 #### Controlador (de) Botones
 
-* Entrada: Dirección de 32 bits al primer elemento del arreglo de entrada. Dirección de 32 bits al primer elemento del arreglo de salida.
+* Entrada: Direcciones de 32 bits al primer elemento del arreglo de entrada y al primer elemento del arreglo de salida.
 * El controlador se ve reducido, en esta fase, a un programa que al correr revisa si uno de cuatro bytes en un arreglo en memoria es diferente a cero. De ser así, cambia todos los valores en un arreglo de salida a cero, y luego cambia el valor en el arreglo de salida de misma posición que el valor que es diferente a cero en el arreglo de entrada. Luego, cambia todos los valores del arreglo de entrada a cero.
 
 #### Codificadores
 
-* Entrada: Dirección de 32 bits al primer elemento del arreglo de entrada/salida. Dirección de 32 bits al elemento del arreglo de salida/entrada.
+* Entrada: Direcciones de 32 bits al primer elemento del arreglo de entrada/salida y al primer elemento del arreglo de salida/entrada.
 * Los codificadores, dependiendo de su dirección, convierten a/desde una dirección de byte única en memoria, que representa un valor único binario, desde/a un arreglo de bytes en memoria de tamaño *k*, para representar los *k* diferentes estados de entrada/salida.
 
 #### Validador
 
-* Entrada: Dirección de 32 bits al primer elemento del arreglo de entrada. Dirección de 32 bits al primer elemento del arreglo de salida.
+* Entrada: Direcciones de 32 bits al primer elemento del arreglo de entrada, al primer elemento del arreglo de salida y a los elementos DUPL y WRITE.
 * El validador consiste en un programa que compara el valor en un arreglo de entrada de dos bytes en memoria con el valor en un arreglo de salida de dos bytes en memoria. Si los valores son iguales, cambia una dirección de byte en memoria *(DUPL)* a uno, si no son iguales, la cambia a cero. Además, existe otra dirección de byte en memoria como banderín de escritura *(WRITE)*. Si el banderín de escritura es diferente de cero, escribe los valores de entrada al arreglo de salida.
 
 #### Enrutador
