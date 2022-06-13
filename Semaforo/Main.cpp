@@ -8,6 +8,10 @@ static uint8_t COORD[3]{ 0,0,0 };
 static uint8_t WRITE{ 0 };
 static uint8_t DUPL{ 0 };
 
+static const uint8_t FASES[7]{};
+// storage for phases
+// phase counter
+
 void coordinar();
 
 void entrada(int pos);
@@ -47,7 +51,7 @@ void entrada(int pos) {
 
 	__asm {
 		// CONTR controlador(BOTON)
-	
+
 		// VAL_I codificador(CONTR)
 
 		// VAL_O validador(VAL_I)
