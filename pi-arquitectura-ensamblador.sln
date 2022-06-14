@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.32428.217
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Semaforo", "Semaforo\Semaforo.vcxproj", "{ADFB2A78-7692-4C1D-BA54-544DBC901633}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Interfaz", "Interfaz\Interfaz.vcxproj", "{E94C9755-5189-3549-8308-B844430246AF}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Interseccion", "..\..\QT\Interseccion\Interseccion.vcxproj", "{A140170A-BB3F-3A96-AA65-4B61E9C4C138}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,12 +23,12 @@ Global
 		{ADFB2A78-7692-4C1D-BA54-544DBC901633}.Release|x64.Build.0 = Release|x64
 		{ADFB2A78-7692-4C1D-BA54-544DBC901633}.Release|x86.ActiveCfg = Release|Win32
 		{ADFB2A78-7692-4C1D-BA54-544DBC901633}.Release|x86.Build.0 = Release|Win32
-		{E94C9755-5189-3549-8308-B844430246AF}.Debug|x64.ActiveCfg = Debug|x64
-		{E94C9755-5189-3549-8308-B844430246AF}.Debug|x64.Build.0 = Debug|x64
-		{E94C9755-5189-3549-8308-B844430246AF}.Debug|x86.ActiveCfg = Debug|x64
-		{E94C9755-5189-3549-8308-B844430246AF}.Release|x64.ActiveCfg = Release|x64
-		{E94C9755-5189-3549-8308-B844430246AF}.Release|x64.Build.0 = Release|x64
-		{E94C9755-5189-3549-8308-B844430246AF}.Release|x86.ActiveCfg = Release|x64
+		{A140170A-BB3F-3A96-AA65-4B61E9C4C138}.Debug|x64.ActiveCfg = Debug|Win32
+		{A140170A-BB3F-3A96-AA65-4B61E9C4C138}.Debug|x86.ActiveCfg = Debug|Win32
+		{A140170A-BB3F-3A96-AA65-4B61E9C4C138}.Debug|x86.Build.0 = Debug|Win32
+		{A140170A-BB3F-3A96-AA65-4B61E9C4C138}.Release|x64.ActiveCfg = Release|Win32
+		{A140170A-BB3F-3A96-AA65-4B61E9C4C138}.Release|x86.ActiveCfg = Release|Win32
+		{A140170A-BB3F-3A96-AA65-4B61E9C4C138}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
