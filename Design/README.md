@@ -76,9 +76,8 @@ Todos los semáforos peatonales presentan una pareja, por lo cual sólo van nume
 
 #### Enrutador
 
-* Entrada: Direcciones de 32 bits al primer elemento del arreglo de entrada, direcciones de memoria
-de cada función para cambiar de fase la interfaz.
-* El enrutador consiste en un programa que prueba si algún elemento del arreglo de entrada es diferente de cero. Al encontrar el primer elemento diferente de cero, llama la función de la interfaz indicada para la fase del mismo número que la posición diferente de cero.
+* Entrada: Direcciones de 32 bits al primer elemento del arreglo de entrada y al elemento de salida.
+* El enrutador consiste en un programa que prueba si algún elemento del arreglo de entrada es diferente de cero. Al encontrar el primer elemento diferente de cero, escribe la posición del elemento a la dirección de salida.
 
 #### Semáforos
 

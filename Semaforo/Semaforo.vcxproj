@@ -19,7 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Sources\Headers\Circuito.h" />
+    <ClInclude Include="Sources\Headers\Circuito.hpp" />
+    <ClInclude Include="Sources\Headers\Logger.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Sources\Main.cpp" />
