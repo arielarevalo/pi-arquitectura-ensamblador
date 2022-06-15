@@ -1,7 +1,5 @@
 # Diseño de Circuito de Semáforos
 
-NOTA: De momento se espera tener esto listo antes del 11 de Junio, con el 8 de Junio como fecha optimista de pre-entrega.
-
 ## Lineamientos de implementación
 
 Los lineamientos podrán cambiar durante el transcurso de las diversas fases del proyecto. Por favor no esperar que el contenido de este documento sea estático, y mantenerse vigilante de algún cambio a su contenido en cada Pull Request.
@@ -11,6 +9,9 @@ Los lineamientos podrán cambiar durante el transcurso de las diversas fases del
 * Escribir nombres de circuito en minúsculas, en español, con palabras separadas por espacios. Sin tildes. Para los nombres de *branch*, usar guión bajo ("_") para separar las palabras. Siempre sin tildes.
 
 * Intentar respetar la escala de los circuitos existentes, en cuanto a espacio entre componentes (i.e. largo de cables).
+
+* Inicialmente se esperaba poder correr la simulación en tiempo real, con los valores de cada uno de los elementos de entrada y salida del circuito cambiando inmediatamente, de forma responsiva a la interfaz. A pesar de la conveniencia de esto, quedan muchas dudas sobre la seguridad de esta estrategia en cuanto al preservar los valores de los registros durante la ejecución de código x86 dentro de los bloques de ensamblador en línea del compilador dentro de una función lambda. En aras de ahorrar tiempo, se optó por no experimentar con esta alternativa para determinar su viabilidad, sino que se simulará esta concurrencia a través de un ciclo interrumpido en la simulación.
+
 
 #### Diseño de la intersección
 
@@ -67,12 +68,17 @@ Todos los semáforos peatonales presentan una pareja, por lo cual sólo van nume
 
 #### Validador
 
-* Entrada: Direcciones de 32 bits al primer elemento del arreglo de entrada, al primer elemento del arreglo de salida y a los elementos DUPL y WRITE.
-* El validador consiste en un programa que compara el valor en un arreglo de entrada de dos bytes en memoria con el valor en un arreglo de salida de dos bytes en memoria. Si los valores son iguales, cambia una dirección de byte en memoria *(DUPL)* a uno, si no son iguales, la cambia a cero. Además, existe otra dirección de byte en memoria como banderín de escritura *(WRITE)*. Si el banderín de escritura es diferente de cero, escribe los valores de entrada al arreglo de salida.
+* Entrada: Direcciones de 32 bits al primer elemento del arreglo de entrada, al primer elemento del arreglo de salida y al elemento DUPL.
+* La entrada-del-validador consiste en un programa que compara el valor en un arreglo de entrada de dos bytes en memoria con el valor en un arreglo de salida de dos bytes en memoria. Si los valores son iguales, cambia una dirección de byte en memoria *(DUPL)* a uno, si no son iguales, la cambia a cero.
+
+* Entrada: Direcciones de 32 bits al primer elemento del arreglo de entrada, al primer elemento del arreglo de salida y al elemento WRITE.
+* La salida-del-validador consiste en un programa que prueba si el valor del banderín de escritura *(WRITE)* es diferente de cero. Si es diferente de cero, escribe los valores del arreglo de entrada al arreglo de salida.
 
 #### Enrutador
 
-* La funcionalidad del enrutador se ha visto absorbida por la interfaz gráfica.
+* Entrada: Direcciones de 32 bits al primer elemento del arreglo de entrada, direcciones de memoria
+de cada función para cambiar de fase la interfaz.
+* El enrutador consiste en un programa que prueba si algún elemento del arreglo de entrada es diferente de cero. Al encontrar el primer elemento diferente de cero, llama la función de la interfaz indicada para la fase del mismo número que la posición diferente de cero.
 
 #### Semáforos
 
