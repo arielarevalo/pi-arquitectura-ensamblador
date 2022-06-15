@@ -15,7 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Sources\Headers\Circuito.h">
+    <ClInclude Include="Sources\Headers\Circuito.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\Headers\Logger.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
