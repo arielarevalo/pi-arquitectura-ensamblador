@@ -105,7 +105,41 @@ vehicular : CALL coordinar
 void Circuito::controlar() {
 	Logger::info("Controlando botones. Valor de entrada", BOTON, TAM_BOTON);
 	__asm {
-		// CONTR controlador(BOTON)
+		PUSH EDI
+		PUSH ESI
+		
+		LEA EDI, BOTON             // Lee el array de botones
+		LEA ESI, CONTR             // Lee el array para el controlador
+
+		XOR ECX, ECX
+
+		conBotones : CMP ECX, 3    //Compara el ECX a comparar
+		JG fin                     // Si es mayor que 3 da Fin
+		JMP compara                // Si no, lo manda a COMPARA
+
+		compara : MOV AL, [EDI]    // Lee el dato del array de botones
+		CMP AL, 1                  // Compara el dato leido contra un 1
+		JE asigna                  // Si son iguales llama a ASIGNA 
+		JMP avanza                 // Si son distintos llama a AVANZA
+
+		asigna : MOV [ESI], 1      // Asigna como 1 el valor del array de control
+		MOV [EDI], 0               // Limpia la posicion del array de botones
+		INC EDI                    // Avanza en el array de botones
+		INC ESI                    // Avanza en el array de control
+		INC ECX                    // Aumenta el ECX
+		JMP conBotones             // Se devuelve al controlador
+
+		avanza : MOV[ESI], 0       // Limpia la posicion en el array de control
+		MOV[EDI], 0                // Limpia la posicion en el array de botones
+		INC EDI                    // Avanza en el array de botones
+		INC ESI                    // Avanza en el array de control
+		INC ECX                    // Aumenta el ECX
+		JMP conBotones             // Se devuelve al controlador
+
+		fin : MOV ECX, 0           // Limpia el ECX para evitar basura
+
+		POP ESI
+		POP EDI
 	}
 	Logger::info("Control de botones termina. Valor de salida", CONTR, TAM_CONTR);
 }
