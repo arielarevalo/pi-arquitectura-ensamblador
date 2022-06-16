@@ -148,6 +148,36 @@ void Circuito::codificar() {
 	Logger::info("Codificando. Valor de entrada", CONTR, TAM_CONTR);
 	__asm {
 		// VAL_I codificador(CONTR)
+
+		/* peatonal  db 0,0,1,0
+			resul db ?,?
+			num1 db ?
+			num2 db ?*/
+		mov al, 0
+		mov resul[0], al
+		mov resul[1],al
+		cmp peatonal[0],1
+		je resultado1
+		
+		mov al, 0
+		mov resul[0], al
+		mov al,1
+		mov resul[1],al
+		cmp peatonal[1],1
+		je resultado1
+		
+		mov al, 1
+		mov resul[0], al
+		mov al,0
+		mov resul[1],al
+		cmp peatonal[2],1
+		je resultado1
+		
+		mov al, 1
+		mov resul[0], al
+		mov resul[1],al
+		cmp peatonal[3],1
+		je resultado1
 	}
 	Logger::info("Codificación termina. Valor de salida", VAL_I, TAM_VAL);
 }
@@ -229,6 +259,74 @@ void Circuito::decodificar() {
 	Logger::info("Decodificando. Valor de entrada", COORD, TAM_COORD);
 	__asm {
 		// RUTA_I decodificador(COORD)
+
+		/*entrada  db 1,1,1
+   		resul db 8 dup ('0'),'$'
+   		aux db 0*/
+		cmp entrada[0],0
+		jg p1
+		cmp entrada[1],0
+		jg p2
+		cmp entrada[2],0
+		jg p5
+		//jmp resultado
+		
+		p1 proc
+		
+		cmp entrada[1],0
+		jg p6
+		cmp entrada[2],0
+		jg p5
+		mov SI,4
+		//jmp resultado
+		ret
+		p1 endp
+		
+		p2 proc
+		cmp entrada[2],0
+		jg p4
+		mov SI,2
+		//jmp resultado
+		ret
+		p2 endp
+		
+		p3 proc
+		cmp entrada[1],0
+		jg p2
+		cmp entrada[2],0
+		jg p3
+		mov SI,1
+		//jmp resultado
+		ret
+		p3 endp
+
+		
+		p4 proc
+		
+		mov SI,3
+		//jmp resultado
+		ret
+		p4 endp
+		
+		p5 proc
+		mov SI,5
+		//jmp resultado
+		ret
+		p5 endp
+		
+		p6 proc
+		cmp entrada[2],0
+		jg p7
+		mov SI,6
+		//jmp resultado
+		ret
+		p6 endp
+		
+		p7 proc
+		mov SI,7
+		//jmp resultado
+		ret
+		p7 endp
 	}
 	Logger::info("Decodificación termina. Valor de salida", RUTA_I, TAM_RUTA);
 }
