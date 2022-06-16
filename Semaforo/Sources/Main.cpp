@@ -12,6 +12,8 @@ auto main() -> int {
 
 	// interfaz.andale()
 
+	circuito.inicio();
+
 	while (true) {
 		circuito.ciclo();
 		enrutar(circuito);
