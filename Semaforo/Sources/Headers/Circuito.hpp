@@ -2,18 +2,20 @@
 
 #include <cstdint>
 #include <cstddef>
-#include <string>
+#include "Logger.hpp"
 
 class Circuito
 {
 public:
-	void ciclo();
+	static void inicio();
 
-	void setPos(int pos);
+	static void ciclo();
 
-	bool hayPos();
+	static void setPos(uint8_t pos);
 
-	uint8_t getRuta_O();
+	static uint8_t hayPos();
+
+	static uint8_t getRuta_O();
 
 private:
 	static const size_t TAM_BOTON{ 4 };
@@ -22,148 +24,237 @@ private:
 	static const size_t TAM_COORD{ 3 };
 	static const size_t TAM_RUTA{ 7 };
 
-	void entrada();
+	static void controlar();
 
-	void salida();
+	static void codificar();
 
-	void controlar();
+	static void validar_i();
 
-	void codificar();
+	static void validar_o();
 
-	void validar_i();
+	static void coordinar();
 
-	void validar_o();
+	static void decodificar();
 
-	void coordinar();
+	static void enrutar();
 
-	void decodificar();
+	static uint8_t getPos();
 
-	void enrutar();
+	static const uint8_t PEAT{ 3 };
 
-	int getPos();
+	static uint8_t BOTON[TAM_BOTON];
+	static uint8_t CONTR[TAM_CONTR];
+	static uint8_t VAL_I[TAM_VAL];
+	static uint8_t DUPL;
 
-	std::string imprimirArreglo(uint8_t arr[], size_t n);
+	static uint8_t VAL_O[TAM_VAL];
+	static uint8_t WRITE;
 
-	uint8_t BOTON[TAM_BOTON]{ 0,0,0,0 };
-	uint8_t CONTR[TAM_CONTR]{ 0,0,0,0 };
-	uint8_t VAL_I[TAM_VAL]{ 0,0 };
-	uint8_t DUPL{ 0 };
+	static uint8_t COORD[TAM_COORD];
 
-	uint8_t VAL_O[TAM_VAL]{ 0,0 };
-	uint8_t WRITE{ 0 };
+	static uint8_t RUTA_I[TAM_RUTA];
+	static uint8_t RUTA_O;
 
-	uint8_t COORD[TAM_COORD]{ 0,0,0 };
-
-	uint8_t RUTA_I[TAM_RUTA]{ 0,0,0,0,0,0,0 };
-	uint8_t RUTA_O{ 0 };
-
-	int pos{ 0 };
-	bool posEsta{ false };
+	static uint8_t FASE;
+	static uint8_t POS;
+	static uint8_t POS_ESTA;
 };
 
-void Circuito::ciclo() {
-	// Puede ser ASM
-	if (hayPos) {
-		entrada();
+uint8_t Circuito::BOTON[TAM_BOTON]{ 0,0,0,0 };
+uint8_t Circuito::CONTR[TAM_CONTR]{ 0,0,0,0 };
+uint8_t Circuito::VAL_I[TAM_VAL]{ 0,0 };
+uint8_t Circuito::DUPL{ 0 };
+
+uint8_t Circuito::VAL_O[TAM_VAL]{ 0,0 };
+uint8_t Circuito::WRITE{ 0 };
+
+uint8_t Circuito::COORD[TAM_COORD]{ 0,0,0 };
+uint8_t Circuito::RUTA_I[TAM_RUTA]{ 0,0,0,0,0,0,0 };
+uint8_t Circuito::RUTA_O{ 0 };
+
+uint8_t Circuito::FASE{ 0 };
+uint8_t Circuito::POS{ 0 };
+uint8_t Circuito::POS_ESTA{ 0 };
+
+void Circuito::inicio() {
+	__asm {
+		XOR ECX, ECX			; Cero al Contador
 	}
-	coordinar();
-	salida();
 }
 
-void Circuito::entrada() {
-	Logger::info("Procesando entrada. Posición de botón: " + std::to_string(pos));
-	// Puede ser ASM
-	BOTON[getPos()] = 1;
-	controlar();
-	codificar();
-	validar_i();
-	Logger::info("Procesado de entrada termina. Valor de salida: " + imprimirArreglo(VAL_I, TAM_VAL));
-}
+void Circuito::ciclo() {
+	Logger::info("Inicia ciclo. Contador de fase en", "Posición de botón", FASE, POS);
+	__asm {
+		MOVZX EAX, POS_ESTA
+		TEST EAX, EAX
+		JZ vehicular
 
-void Circuito::salida() {
-	// Puede ser ASM
-	decodificar();
-	enrutar();
+		MOVZX EAX, [POS]		; entrada
+		MOV BOTON[EAX], 1
+		CALL controlar
+		CALL codificar
+		CALL validar_i
+
+vehicular : CALL coordinar
+
+		CALL decodificar		; salida
+		CALL enrutar
+	}
 }
 
 void Circuito::controlar() {
-	Logger::info("Controlando botones. Valor de entrada: " + imprimirArreglo(BOTON, TAM_BOTON));
+	Logger::info("Controlando botones. Valor de entrada", BOTON, TAM_BOTON);
 	__asm {
-		// CONTR controlador(BOTON)
+		PUSH EDI
+		PUSH ESI
+		
+		LEA EDI, BOTON             // Lee el array de botones
+		LEA ESI, CONTR             // Lee el array para el controlador
+
+		XOR ECX, ECX
+
+		conBotones : CMP ECX, 3    //Compara el ECX a comparar
+		JG fin                     // Si es mayor que 3 da Fin
+		JMP compara                // Si no, lo manda a COMPARA
+
+		compara : MOV AL, [EDI]    // Lee el dato del array de botones
+		CMP AL, 1                  // Compara el dato leido contra un 1
+		JE asigna                  // Si son iguales llama a ASIGNA 
+		JMP avanza                 // Si son distintos llama a AVANZA
+
+		asigna : MOV [ESI], 1      // Asigna como 1 el valor del array de control
+		MOV [EDI], 0               // Limpia la posicion del array de botones
+		INC EDI                    // Avanza en el array de botones
+		INC ESI                    // Avanza en el array de control
+		INC ECX                    // Aumenta el ECX
+		JMP conBotones             // Se devuelve al controlador
+
+		avanza : MOV[ESI], 0       // Limpia la posicion en el array de control
+		MOV[EDI], 0                // Limpia la posicion en el array de botones
+		INC EDI                    // Avanza en el array de botones
+		INC ESI                    // Avanza en el array de control
+		INC ECX                    // Aumenta el ECX
+		JMP conBotones             // Se devuelve al controlador
+
+		fin : MOV ECX, 0           // Limpia el ECX para evitar basura
+
+		POP ESI
+		POP EDI
 	}
-	Logger::info("Control de botones termina. Valor de salida: " + imprimirArreglo(CONTR, TAM_CONTR));
+	Logger::info("Control de botones termina. Valor de salida", CONTR, TAM_CONTR);
 }
 
 void Circuito::codificar() {
-	Logger::info("Codificando. Valor de entrada: " + imprimirArreglo(CONTR, TAM_CONTR));
+	Logger::info("Codificando. Valor de entrada", CONTR, TAM_CONTR);
 	__asm {
 		// VAL_I codificador(CONTR)
 	}
-	Logger::info("Codificación termina. Valor de salida: " + imprimirArreglo(VAL_I, TAM_VAL));
+	Logger::info("Codificación termina. Valor de salida", VAL_I, TAM_VAL);
 }
 
 void Circuito::validar_i() {
-	Logger::info("Validando entrada. Valor de entrada: " + imprimirArreglo(VAL_I, TAM_VAL));
+	Logger::info("Validando entrada. Valor de entrada", VAL_I, TAM_VAL);
 	__asm {
 		// DUPL entrada(VAL_I)
 	}
-	Logger::info("Validación de entrada termina. Banderín duplicado: " + std::to_string(DUPL));
+	Logger::info("Validación de entrada termina. Banderín duplicado", DUPL);
 }
 
 void Circuito::validar_o() {
-	Logger::info("Escribiendo validador. Valor de entrada: " + imprimirArreglo(VAL_I, TAM_VAL));
+	Logger::info("Escribiendo validador. Valor de entrada", VAL_I, TAM_VAL);
 	__asm {
-		// VAL_O entrada(WRITE)
+		// VAL_O salida(WRITE)
 	}
-	Logger::info("Escritura validador termina. Valor de salida: " + imprimirArreglo(VAL_O, TAM_VAL));
+	Logger::info("Escritura validador termina. Valor de salida", VAL_O, TAM_VAL);
 }
 
 void Circuito::coordinar() {
-	Logger::info("Coordinando. Contador de fase en: " + std::to_string(0) + " Banderín duplicado: " + std::to_string(DUPL));
+	Logger::info("Coordinando. Banderín duplicado", DUPL);
 
-	// Listo
+	uint8_t* W{&WRITE};
 
-	Logger::info("Coordinación termina. Valor de salida: " + imprimirArreglo(COORD, TAM_COORD));
+	__asm {
+		MOV AL, DUPL			; Confirmar si DUPL es cero
+		TEST AL, AL
+		JZ peaton
+		TEST ECX, ECX			; Confirmar si contador es cero
+		JZ peaton
+		MOV EAX, ECX			; Valor de fase al Acumulador
+		INC ECX					; Contador de fase aumenta
+		JMP fases
+peaton: INC W					; Solicitar valor reciente al validador
+		CALL validar_o			
+		DEC W
+		MOV AL, VAL_O[1]		; Extraer valor de salida del validador
+		SHL AL, 1
+		ADD AL, VAL_O[0]
+		ADD AL, PEAT			;   Valor de fase al Acumulador
+fases:  PUSH ECX
+		PUSH ESI
+		MOV ECX, 3				; Número de bits del valor de salida al Contador
+		MOV ESI, OFFSET COORD
+		MOV EDX, EAX
+digito: XOR EAX, EAX			; Extraer un bit de la fase del Acumulador
+		RCR EDX, 1
+		ADC EAX, 0
+		MOV[ESI], AL			;   Valor de bit de la fase a salida coordinador
+		INC ESI
+		LOOP digito				; Tres bits en total
+		POP ECX
+		POP ESI
+	}
+
+	// cambio de luces fase (COORD)
+
+	__asm {
+		MOV ECX, 1073741823
+		delay30:
+		LOOP delay30
+	}
+
+	// cambio de luces fase (COORD)
+
+	__asm {
+		MOV ECX, 134217727
+		delay4:
+		LOOP delay4
+	}
+
+	// cambio de luces fase (COORD)
+
+	Logger::info("Coordinación termina. Valor de salida", COORD, TAM_COORD);
 }
 
 void Circuito::decodificar() {
-	Logger::info("Decodificando. Valor de entrada: " + imprimirArreglo(COORD, TAM_COORD));
+	Logger::info("Decodificando. Valor de entrada", COORD, TAM_COORD);
 	__asm {
 		// RUTA_I decodificador(COORD)
 	}
-	Logger::info("Decodificación termina. Valor de salida: " + imprimirArreglo(RUTA_I, TAM_RUTA));
+	Logger::info("Decodificación termina. Valor de salida", RUTA_I, TAM_RUTA);
 }
 
 void Circuito::enrutar() {
-	Logger::info("Enrutando. Valor de entrada: " + imprimirArreglo(RUTA_I, TAM_RUTA));
+	Logger::info("Enrutando. Valor de entrada", RUTA_I, TAM_RUTA);
 	__asm {
 		// RUTA_O enrutar(RUTA_I)
 	}
-	Logger::info("Enrutamiento termina. Valor de salida: " + std::to_string(RUTA_O));
+	Logger::info("Enrutamiento termina. Valor de salida", RUTA_O);
 }
 
-void Circuito::setPos(int pos) {
-	this->pos = pos;
-	this->posEsta = true;
+void Circuito::setPos(uint8_t pos) {
+	Circuito::POS = pos;
+	Circuito::POS_ESTA = 1;
 }
 
-int Circuito::getPos() {
-	this->posEsta = false;
-	return this->pos;
+uint8_t Circuito::getPos() {
+	POS_ESTA = 0;
+	return POS;
 }
 
-bool Circuito::hayPos() {
-	return posEsta;
+uint8_t Circuito::hayPos() {
+	return POS_ESTA;
 }
 
 uint8_t Circuito::getRuta_O() {
 	return RUTA_O;
-}
-
-std::string Circuito::imprimirArreglo(uint8_t arr[], size_t n) {
-	std::string salida{ "[ " };
-	for (size_t i{ 0 }; i < n; ++i) {
-		salida += std::to_string(arr[i]) + " ";
-	}
-	return salida += " ]";
 }
