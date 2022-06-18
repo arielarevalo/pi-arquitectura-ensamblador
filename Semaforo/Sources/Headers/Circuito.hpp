@@ -156,6 +156,41 @@ void Circuito::validar_i() {
 	Logger::info("Validando entrada. Valor de entrada", VAL_I, TAM_VAL);
 	__asm {
 		// DUPL entrada(VAL_I)
+		//entrada  db 1, 0
+		//salida  db 1, 1
+		//DUPL db ?
+		//resul db ?
+
+		com1 :
+
+		mov al, VAL_O[0]
+		cmp VAL_I[0], al
+		je com2
+		mov DUPL, 0
+		mov al, DUPL
+		jmp resultado
+
+
+		com2 :
+
+		mov al, VAL_O[1]
+			cmp VAL_I[1], al
+			je dup
+			mov DUPL, 0
+			mov al, DUPL
+			jmp resultado
+
+
+			dup :
+
+		mov DUPL, 1; dupl = 1
+			mov al, DUPL; al = 1
+			jmp resultado
+
+
+			resultado :
+		mov al,0
+
 	}
 	Logger::info("Validación de entrada termina. Banderín duplicado", DUPL);
 }
@@ -164,6 +199,29 @@ void Circuito::validar_o() {
 	Logger::info("Escribiendo validador. Valor de entrada", VAL_I, TAM_VAL);
 	__asm {
 		// VAL_O salida(WRITE)
+
+	dup1:
+
+
+		cmp DUPL, 1
+			je resultado1
+			jmp wt
+
+
+			wt :
+		mov al, VAL_I[0]
+			mov VAL_O[0], al
+			mov al, VAL_I[1]
+			mov VAL_O[1], al
+			jmp resultado1
+
+
+			resultado1 :
+		mov al, 0
+			jmp resultado2
+
+			resultado2 :
+		mov al, 0
 	}
 	Logger::info("Escritura validador termina. Valor de salida", VAL_O, TAM_VAL);
 }
