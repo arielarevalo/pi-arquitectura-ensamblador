@@ -1,20 +1,30 @@
+#include <QApplication>
 #include <stdlib.h>
-#include "Headers/Circuito.hpp"
-#include "Headers/Logger.hpp"
 
-void enrutar(Circuito circuito);
+#include "Headers/mainwindow.h"
+#include "Headers/circuito.h"
+#include "Headers/logger.h"
 
-auto main() -> int {
+void enrutar(Circuito);
+
+int main(int argc, char *argv[])
+{
+    QApplication a(argc, argv);
+    MainWindow w;
+    w.show();
+
 	Logger::setStart();
 
 	Circuito circuito;
-
 	circuito.inicio();
 
 	while (true) {
 		circuito.ciclo();
 		enrutar(circuito);
+		a.processEvents();
 	}
+
+	return a.exec();
 }
 
 void enrutar(Circuito circuito) {
