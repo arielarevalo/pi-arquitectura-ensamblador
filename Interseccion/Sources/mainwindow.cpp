@@ -14,6 +14,115 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::cambio(int ruta)
+{
+    switch (ruta) {
+    case 0:
+        switch (fase) {
+        case 0:
+            ronda0Verde();
+            break;
+        case 1:
+            ronda0Amarillo();
+            break;
+        case 2:
+            ronda0Rojo();
+            break;
+        }
+        break;
+    case 1:
+        switch (fase) {
+        case 0:
+            ronda1Verde();
+            break;
+        case 1:
+            ronda1Amarillo();
+            break;
+        case 2:
+            ronda1Rojo();
+            break;
+        }
+        break;
+    case 2:
+        switch (fase) {
+        case 0:
+            ronda2Verde();
+            break;
+        case 1:
+            ronda2Amarillo();
+            break;
+        case 2:
+            ronda2Rojo();
+            break;
+        }
+        break;
+    case 3:
+        switch (fase) {
+        case 0:
+            ronda3Verde();
+            break;
+        case 1:
+            ronda3Amarillo();
+            break;
+        case 2:
+            ronda3Rojo();
+            break;
+        }
+        break;
+    case 4:
+        switch (fase) {
+        case 0:
+            ronda4Verde();
+            break;
+        case 1:
+            ronda4Amarillo();
+            break;
+        case 2:
+            ronda4Rojo();
+            break;
+        }
+        break;
+    case 5:
+        switch (fase) {
+        case 0:
+            ronda5Verde();
+            break;
+        case 1:
+            ronda5Amarillo();
+            break;
+        case 2:
+            ronda5Rojo();
+            break;
+        }
+        break;
+    case 6:
+        switch (fase) {
+        case 0:
+            ronda6Verde();
+            break;
+        case 1:
+            ronda6Amarillo();
+            break;
+        case 2:
+            ronda6Rojo();
+            break;
+        }
+        break;
+    }
+    ++fase %= 3;
+}
+
+int MainWindow::getButton()
+{
+    pressed = false;
+    return button;
+}
+
+bool MainWindow::isPressed()
+{
+    return pressed;
+}
+
 /*!Rondas Transito!*/
 
 /*!Ronda 0 de transito - Verde!*/
@@ -707,52 +816,58 @@ void MainWindow::ronda6Rojo()
 
 /*! Inicio funcionalidad botones de los peatonales!*/
 
-/*! Boton Derecho Peatonal Arriba!*/
-void MainWindow::on_btnPeatonal1B_clicked()
+void MainWindow::setButton(int button)
 {
-
+    this->button = button;
+    pressed = true;
 }
 
 /*! Boton Izquierdo Peatonal Arriba!*/
 void MainWindow::on_btnPeatonal1A_clicked()
 {
+    setButton(0);
+}
 
+/*! Boton Derecho Peatonal Arriba!*/
+void MainWindow::on_btnPeatonal1B_clicked()
+{
+    setButton(0);
 }
 
 /*! Boton Arriba Peatonal Izquierdo!*/
 void MainWindow::on_btnPeatonal2A_clicked()
 {
-
+    setButton(3);
 }
 
 /*! Boton Abajo Peatonal Izquierdo!*/
 void MainWindow::on_btnPeatonal2B_clicked()
 {
-
+    setButton(3);
 }
 
 /*! Boton Izquierdo Peatonal Abajo!*/
 void MainWindow::on_btnPeatonal3A_clicked()
 {
-
+    setButton(2);
 }
 
 /*! Boton Derecho Peatonal Abajo!*/
 void MainWindow::on_btnPeatonal3B_clicked()
 {
-
-}
-
-/*! Boton Abajo Peatonal Derecho!*/
-void MainWindow::on_btnPeatonal4B_clicked()
-{
-
+    setButton(2);
 }
 
 /*! Boton Arriba Peatonal Derecho!*/
 void MainWindow::on_btnPeatonal4A_clicked()
 {
+    setButton(1);
+}
 
+/*! Boton Abajo Peatonal Derecho!*/
+void MainWindow::on_btnPeatonal4B_clicked()
+{
+    setButton(1);
 }
 
 /*! Fin Funcionalidad Botones Peatonales!*/

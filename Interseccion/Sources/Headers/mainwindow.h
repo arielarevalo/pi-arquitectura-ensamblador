@@ -15,6 +15,12 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+    void cambio(int ruta);
+
+    int getButton();
+
+    bool isPressed();
+
 private slots:
     void ronda0Verde();
 
@@ -75,6 +81,14 @@ private slots:
     void on_btnPeatonal4A_clicked();
 
 private:
+    void setButton(int button);
+
+    int fase{ 0 };
+
+    int button{ 0 };
+
+    bool pressed{ false };
+
     Ui::MainWindow *ui;
 };
 
