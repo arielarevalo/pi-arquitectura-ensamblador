@@ -152,34 +152,34 @@ void Circuito::codificar() {
 		/* peatonal  db 0,0,1,0 --->contr?
 			resul db ?,? ----------> val_i?
 			*/
-		mov al, 0
-		mov VAL_I[0], al
-		mov  VAL_I[1],al
-		cmp CONTR[0],1
-		je resultado1
-		
-		mov al, 0
-		mov  VAL_I[0], al
-		mov al,1
-		mov  VAL_I[1],al
-		cmp CONTR[1],1
-		je resultado1
-		
-		mov al, 1
-		mov  VAL_I[0], al
-		mov al,0
-		mov  VAL_I[1],al
-		cmp CONTR[2],1
-		je resultado1
-		
-		mov al, 1
-		mov  VAL_I[0], al
-		mov  VAL_I[1],al
-		cmp CONTR[3],1
-		je resultado1
+		MOV AL, 0 		   		// Coloca un cero en el registro AL
+        MOV VAL_I[0], AL		// Coloca un cero en la posicion cero del array VAL_I
+        MOV  VAL_I[1],AL		// Coloca un cero en la posicion uno del array VAL_I
+        CMP CONTR[0],1			// Compara si en el controlador de botones posicion cero esta encendida
+        JE RESULTADO1			// Si esta encendida se sabe que la posicion corresponde a la 00 en binario y salta
+        
+        MOV AL, 0				// Coloca un cero en el registro AL
+        MOV  VAL_I[0], AL		// Coloca un cero en la posicion cero del array VAL_I
+        MOV AL,1				// Coloca un uno en el registro AL
+        MOV  VAL_I[1],AL		// Coloca un uno en la posicion uno del array VAL_I
+        CMP CONTR[1],1			// Compara si en el controlador de botones posicion uno esta encendida
+        JE RESULTADO1			// Si esta encendida se sabe que la posicion corresponde a la 01 en binario y salta
+        
+        MOV AL, 1				// Coloca un uno en el registro AL
+        MOV  VAL_I[0], AL		// Coloca un uno en la posicion cero del array VAL_I
+        MOV AL,0				// Coloca un cero en el registro AL
+        MOV  VAL_I[1],AL		// Coloca un cero en la posicion uno del array VAL_I
+        CMP CONTR[2],1			// Compara si en el controlador de botones posicion dos esta encendida
+        JE RESULTADO1			// Si esta encendida se sabe que la posicion corresponde a la 10 en binario y salta
+        
+        MOV AL, 1				// Coloca un uno en el registro AL
+        MOV  VAL_I[0], AL		// Coloca un uno en la posicion cero del array VAL_I
+        MOV  VAL_I[1],AL		// Coloca un uno en el registro AL
+        CMP CONTR[3],1			// Coloca un uno en la posicion uno del array VAL_I
+        JE RESULTADO1			// Si esta encendida se sabe que la posicion corresponde a la 11 en binario y salta
 
-		resultado1:
-		mov al,0
+    	RESULTADO1:	MOV AL,0	// Limpia el registro AL
+
 	}
 	Logger::info("Codificación termina. Valor de salida", VAL_I, TAM_VAL);
 }
@@ -265,57 +265,46 @@ void Circuito::decodificar() {
 		/*entrada  db 1,1,1 ------> coord
    		resul db 8 dup ('0'),'$' ------> ruta_i
    		aux db 0*/
-		cmp COORD[0],0
-		jg p1
-		cmp COORD[1],0
-		jg p2
-		cmp COORD[2],0
-		jg p5
-		jmp resultado
-		
-		p1:
-		cmp COORD[1],0
-		jg p6
-		cmp COORD[2],0
-		jg p5
-		mov SI,4
-		jmp resultado
+		CMP COORD[0],0			// Compara si en el controlador de botones posicion cero esta apagada
+        JG P1					// Si no esta apagada salta a P1
+        CMP COORD[1],0			// Compara si en el controlador de botones posicion uno esta apagada
+        JG P2					// Si no esta apagada salta a P2
+        CMP COORD[2],0			// Compara si en el controlador de botones posicion dos esta apagada 
+        JG P5					// Si no esta apagada salta a P5
+        JMP RESULTADO			// Si las tres posiciones estan apagadas salta a resultado
+        
+        P1:	CMP COORD[1],0		// Compara si en el controlador de botones posicion uno esta apagada
+        JG P6					// Si no esta apagada salta a P6
+        CMP COORD[2],0			// Compara si en el controlador de botones posicion dos esta apagada
+        JG P3					// Si no esta apagada salta a P5
+        MOV SI,4				// Si posicion cero en el controlador de botones esta encendida y el resto apagadas (100), mueve un cuatro a SI
+        JMP RESULTADO			// Salta a resultado
 
-		p2:
-		cmp COORD[2],0
-		jg p4
-		mov SI,2
-		jmp resultado
-		
-		p3:
-		cmp COORD[1],0
-		jg p2
-		cmp COORD[2],0
-		jg p3
-		mov SI,1
-		jmp resultado
+        P2:	CMP COORD[2],0		// Compara si en el controlador de botones posicion dos esta apagada
+        JG P4					// Si no esta apagada salta a P4
+        MOV SI,2				// Si posicion uno en el controlador de botones esta encendida y el resto apagadas (010), mueve un dos a SI
+        JMP RESULTADO			// Salta a resultado
+        
+        P3:	MOV SI,5			// Si posicion cero y dos en el controlador de botones estan encendidas y el resto apagadas (101), mueve un cinco a SI
+        JMP RESULTADO			// Salta a resultado
 
-		p4:
-		mov SI,3
-		jmp resultado
-		
-		p5:
-		mov SI,5
-		jmp resultado
-		
-		p6:
-		cmp COORD[2],0
-		jg p7
-		mov SI,6
-		jmp resultado
-		
-		p7:
-		mov SI,7
-		jmp resultado
+        P4:	MOV SI,3			// Si posicion uno y dos en el controlador de botones estan encendidas y el resto apagadas (011), mueve un tres a SI
+        JMP RESULTADO			// Salta a resultado
+        
+        P5:	MOV SI,1			// Si posicion dos en el controlador de botones esta encendida y el resto apagadas (001), mueve un uno a SI
+        JMP RESULTADO			// Salta a resultado
+        
+        P6:	CMP COORD[2],0		// Compara si en el controlador de botones posicion dos esta apagada
+        JG P7					// Si no esta apagada salta a P7
+        MOV SI,6				// Si posicion cero y uno en el controlador de botones estan encendidsa y el resto apagadas (110), mueve un seis a SI
+        JMP RESULTADO			// Salta a resultado
+        
+        P7:	MOV SI,7			// Si todas las posiciones en el controlador de botones estan encendidas (111), mueve un siete a SI
+        JMP RESULTADO			// Salta a resultado
 
-		resultado:
-		mov dl,1     
-     	mov RUTA_I[SI],dl
+        RESULTADO:	MOV DL,1    // Coloca un 1 en DL
+        MOV RUTA_I[SI],DL		// Coloca un uno en la posicion que recibe de SI
+
 	}
 	Logger::info("Decodificación termina. Valor de salida", RUTA_I, TAM_RUTA);
 }
