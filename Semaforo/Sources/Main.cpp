@@ -2,41 +2,26 @@
 #include "Headers/Circuito.hpp"
 #include "Headers/Logger.hpp"
 
-void enrutar(Circuito);
+void enrutar(int ruta);
 
 auto main() -> int {
 	Logger::setStart();
 
-	Circuito circuito;
-	// Interfaz interfaz;
-
-	// interfaz.andale()
-
-	circuito.inicio();
-
 	while (true) {
-		circuito.ciclo();
-		enrutar(circuito);
+		// Interfaz necesita un banderin{false} de que boton fue oprimido
+		// if Interfaz.banderin
+		// Circuito::entrada(Interfaz.pos)
+		// end if
+		Circuito::coordinar();
+		enrutar(Circuito::getRuta());
+		// a.processEvents()
 	}
 }
 
-void enrutar(Circuito circuito) {
-	switch (circuito.getRuta_O()) {
-	case 0:
-		return; // llenar con metodos interfaz
-	case 1:
-		return;
-	case 2:
-		return;
-	case 3:
-		return;
-	case 4:
-		return;
-	case 5:
-		return;
-	case 6:
-		return;
-	default:
+void enrutar(int ruta) {
+	if (ruta < 8) {
+		// Interfaz.cambio(ruta)
+	} else {
 		Logger::error("Se falló al enrutar: Enrutador retornó valor de fase inválido.");
 		exit(1);
 	}

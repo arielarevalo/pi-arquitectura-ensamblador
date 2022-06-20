@@ -1,0 +1,238 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;moc;h;def;odl;idl;res;</Extensions>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;moc;h;def;odl;idl;res;</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="debug\moc_predefs.h.cbt">
+      <Filter>Generated Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="release\moc_predefs.h.cbt">
+      <Filter>Generated Files</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="Forms\mainwindow.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Vehiculares\AmarilloH.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Vehiculares\AmarilloV.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Peatonales\BTNPeatonal.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Vehiculares\EsteAmarillo.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Vehiculares\EsteDrcAmarillo.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Vehiculares\EsteDrcRojo.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Vehiculares\EsteDrcVerde.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Vehiculares\EsteRojo.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Vehiculares\EsteVerde.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Vehiculares\IzqNorteAmarillo.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Vehiculares\IzqNorteRojo.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Vehiculares\IzqNorteVerde.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Vehiculares\IzqSurAmarillo.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Vehiculares\IzqSurRojo.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Vehiculares\IzqSurVerde.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Vehiculares\NorteAmarillo.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Vehiculares\NorteDrcAmarillo.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Vehiculares\NorteDrcRojo.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Vehiculares\NorteDrcVerde.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Vehiculares\NorteRojo.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Vehiculares\NorteVerde.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Vehiculares\OesteAmarillo.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Vehiculares\OesteDrcAmarillo.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Vehiculares\OesteDrcRojo.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Vehiculares\OesteDrcVerde.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Vehiculares\OesteRojo.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Vehiculares\OesteVerde.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Peatonales\Rojo.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Vehiculares\RojoHE.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Vehiculares\RojoHO.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Vehiculares\RojoVN.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Vehiculares\RojoVS.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Peatonales\RojoVertical.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Peatonales\SR.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Peatonales\SV.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Vehiculares\SurAmarillo.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Vehiculares\SurDrcAmarillo.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Vehiculares\SurDrcRojo.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Vehiculares\SurDrcVerde.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Vehiculares\SurRojo.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Vehiculares\SurVerde.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Peatonales\Verde.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Vehiculares\VerdeHE.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Vehiculares\VerdeHO.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Vehiculares\VerdeVN.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Vehiculares\VerdeVS.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Peatonales\VerdeVertical.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <QtRcc Include="Resources\resources.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Sources\circuito.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\mainwindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\logger.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Sources\Headers\circuito.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\Headers\ui_mainwindow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\Headers\logger.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="Sources\Headers\mainwindow.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+  </ItemGroup>
+</Project>

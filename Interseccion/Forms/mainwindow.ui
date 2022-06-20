@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1800</width>
+    <width>1350</width>
     <height>1000</height>
    </rect>
   </property>
@@ -17,19 +17,6 @@
    <string notr="true">background-color: rgb(77, 77, 77);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="pushButton">
-    <property name="geometry">
-     <rect>
-      <x>1390</x>
-      <y>70</y>
-      <width>121</width>
-      <height>29</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Ronda 4 Verde</string>
-    </property>
-   </widget>
    <widget class="Line" name="line">
     <property name="geometry">
      <rect>
@@ -249,19 +236,6 @@ border-color: rgb(255, 255, 255);</string>
      <enum>Qt::Vertical</enum>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
-    <property name="geometry">
-     <rect>
-      <x>1670</x>
-      <y>70</y>
-      <width>105</width>
-      <height>29</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Ronda 4 Rojo</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="SP1A">
     <property name="geometry">
      <rect>
@@ -306,12 +280,12 @@ border-color: rgb(255, 255, 255);</string>
      <rect>
       <x>200</x>
       <y>0</y>
-      <width>31</width>
+      <width>51</width>
       <height>101</height>
      </rect>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/VehicularRojo/Vehiculares/SurRojo.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/VehicularRojo/Vehiculares/SurDrcRojo.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLabel" name="Sur2">
@@ -325,19 +299,6 @@ border-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/VehicularRojo/Vehiculares/SurRojo.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_3">
-    <property name="geometry">
-     <rect>
-      <x>1390</x>
-      <y>300</y>
-      <width>120</width>
-      <height>29</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Ronda 1 Verde</string>
     </property>
    </widget>
    <widget class="QLabel" name="SP2A">
@@ -379,32 +340,6 @@ border-color: rgb(255, 255, 255);</string>
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/PeatonalRojo/Peatonales/RojoVertical.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_4">
-    <property name="geometry">
-     <rect>
-      <x>1390</x>
-      <y>110</y>
-      <width>121</width>
-      <height>29</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Ronda 5 Verde</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_5">
-    <property name="geometry">
-     <rect>
-      <x>1670</x>
-      <y>110</y>
-      <width>105</width>
-      <height>29</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Ronda 5 Rojo</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="SP3A">
     <property name="geometry">
      <rect>
@@ -444,32 +379,6 @@ border-color: rgb(255, 255, 255);</string>
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/PeatonalRojo/Peatonales/Rojo.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_6">
-    <property name="geometry">
-     <rect>
-      <x>1390</x>
-      <y>150</y>
-      <width>121</width>
-      <height>29</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Ronda 6 Verde</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_7">
-    <property name="geometry">
-     <rect>
-      <x>1670</x>
-      <y>150</y>
-      <width>105</width>
-      <height>29</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Ronda 6 Rojo</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="PTEste">
     <property name="geometry">
      <rect>
@@ -481,32 +390,6 @@ border-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/PeatonalRojo/Peatonales/RojoVertical.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_8">
-    <property name="geometry">
-     <rect>
-      <x>1390</x>
-      <y>190</y>
-      <width>121</width>
-      <height>29</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Ronda 7 Verde</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_9">
-    <property name="geometry">
-     <rect>
-      <x>1670</x>
-      <y>190</y>
-      <width>105</width>
-      <height>29</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Ronda 7 Rojo</string>
     </property>
    </widget>
    <widget class="QLabel" name="SP4A">
@@ -609,13 +492,13 @@ border-color: rgb(251, 255, 8);</string>
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>600</y>
+      <y>590</y>
       <width>101</width>
-      <height>21</height>
+      <height>51</height>
      </rect>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/VehicularRojo/Vehiculares/EsteRojo.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/VehicularRojo/Vehiculares/EsteDrcRojo.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="Line" name="line_14">
@@ -640,13 +523,13 @@ border-color: rgb(251, 255, 8);</string>
     <property name="geometry">
      <rect>
       <x>1190</x>
-      <y>250</y>
+      <y>230</y>
       <width>101</width>
-      <height>21</height>
+      <height>41</height>
      </rect>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/VehicularRojo/Vehiculares/OesteRojo.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/VehicularRojo/Vehiculares/OesteDrcRojo.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLabel" name="Este2">
@@ -696,14 +579,14 @@ border-color: rgb(251, 255, 8);</string>
    <widget class="QLabel" name="Norte4">
     <property name="geometry">
      <rect>
-      <x>1060</x>
+      <x>1050</x>
       <y>850</y>
-      <width>31</width>
+      <width>41</width>
       <height>101</height>
      </rect>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/VehicularRojo/Vehiculares/NorteRojo.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/VehicularRojo/Vehiculares/NorteDrcRojo.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLabel" name="Norte3">
@@ -795,237 +678,6 @@ border-color: rgb(255, 255, 255);</string>
     </property>
     <property name="orientation">
      <enum>Qt::Vertical</enum>
-    </property>
-   </widget>
-   <widget class="Line" name="line_19">
-    <property name="geometry">
-     <rect>
-      <x>1380</x>
-      <y>0</y>
-      <width>3</width>
-      <height>1000</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: rgb(85, 170, 0);
-border: 2px solid;
-border-color: rgb(85, 170, 0);</string>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Vertical</enum>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>1490</x>
-      <y>0</y>
-      <width>231</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Arial</family>
-      <pointsize>12</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>Panel de control temporal.</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>1390</x>
-      <y>40</y>
-      <width>181</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Arial</family>
-      <pointsize>12</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>Peatonales</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_3">
-    <property name="geometry">
-     <rect>
-      <x>1390</x>
-      <y>270</y>
-      <width>181</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Arial</family>
-      <pointsize>12</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>Vehiculares</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_10">
-    <property name="geometry">
-     <rect>
-      <x>1530</x>
-      <y>300</y>
-      <width>130</width>
-      <height>29</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Ronda 1 Amarillo</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_11">
-    <property name="geometry">
-     <rect>
-      <x>1670</x>
-      <y>300</y>
-      <width>110</width>
-      <height>29</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Ronda 1 Rojo</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_12">
-    <property name="geometry">
-     <rect>
-      <x>1390</x>
-      <y>340</y>
-      <width>120</width>
-      <height>29</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Ronda 2 Verde</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_13">
-    <property name="geometry">
-     <rect>
-      <x>1530</x>
-      <y>340</y>
-      <width>130</width>
-      <height>29</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Ronda 2 Amarillo</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_14">
-    <property name="geometry">
-     <rect>
-      <x>1670</x>
-      <y>340</y>
-      <width>110</width>
-      <height>29</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Ronda 2 Rojo</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_15">
-    <property name="geometry">
-     <rect>
-      <x>1390</x>
-      <y>380</y>
-      <width>120</width>
-      <height>29</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Ronda 3 Verde</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_16">
-    <property name="geometry">
-     <rect>
-      <x>1530</x>
-      <y>380</y>
-      <width>130</width>
-      <height>29</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Ronda 3 Amarillo</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_17">
-    <property name="geometry">
-     <rect>
-      <x>1670</x>
-      <y>380</y>
-      <width>110</width>
-      <height>29</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Ronda 3 Rojo</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_18">
-    <property name="geometry">
-     <rect>
-      <x>1530</x>
-      <y>70</y>
-      <width>125</width>
-      <height>29</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Ronda 4 Amarillo</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_19">
-    <property name="geometry">
-     <rect>
-      <x>1530</x>
-      <y>110</y>
-      <width>125</width>
-      <height>29</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Ronda 5 Amarillo</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_20">
-    <property name="geometry">
-     <rect>
-      <x>1530</x>
-      <y>150</y>
-      <width>125</width>
-      <height>29</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Ronda 6 Amarillo</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_21">
-    <property name="geometry">
-     <rect>
-      <x>1530</x>
-      <y>190</y>
-      <width>125</width>
-      <height>29</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Ronda 7 Amarillo</string>
     </property>
    </widget>
    <widget class="QPushButton" name="btnPeatonal1B">
@@ -1264,7 +916,7 @@ border-color: rgb(85, 170, 0);</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1800</width>
+     <width>1350</width>
      <height>25</height>
     </rect>
    </property>

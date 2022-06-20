@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.32428.217
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Semaforo", "Semaforo\Semaforo.vcxproj", "{6162721C-5308-4639-9970-107835D22542}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Interseccion", "..\..\QT\Interseccion2\Prueba\Interseccion\Interseccion.vcxproj", "{015A0CF7-BA2D-344B-B9E3-4165A6E3CAD8}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Interseccion", "Interseccion\Interseccion.vcxproj", "{46262D94-8F08-34DD-8817-F41E898E136A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,17 +18,17 @@ Global
 		{6162721C-5308-4639-9970-107835D22542}.Debug|x64.ActiveCfg = Debug|x64
 		{6162721C-5308-4639-9970-107835D22542}.Debug|x64.Build.0 = Debug|x64
 		{6162721C-5308-4639-9970-107835D22542}.Debug|x86.ActiveCfg = Debug|Win32
-		{6162721C-5308-4639-9970-107835D22542}.Debug|x86.Build.0 = Debug|Win32
 		{6162721C-5308-4639-9970-107835D22542}.Release|x64.ActiveCfg = Release|x64
 		{6162721C-5308-4639-9970-107835D22542}.Release|x64.Build.0 = Release|x64
 		{6162721C-5308-4639-9970-107835D22542}.Release|x86.ActiveCfg = Release|Win32
-		{6162721C-5308-4639-9970-107835D22542}.Release|x86.Build.0 = Release|Win32
-		{015A0CF7-BA2D-344B-B9E3-4165A6E3CAD8}.Debug|x64.ActiveCfg = Debug|Win32
-		{015A0CF7-BA2D-344B-B9E3-4165A6E3CAD8}.Debug|x86.ActiveCfg = Debug|Win32
-		{015A0CF7-BA2D-344B-B9E3-4165A6E3CAD8}.Debug|x86.Build.0 = Debug|Win32
-		{015A0CF7-BA2D-344B-B9E3-4165A6E3CAD8}.Release|x64.ActiveCfg = Release|Win32
-		{015A0CF7-BA2D-344B-B9E3-4165A6E3CAD8}.Release|x86.ActiveCfg = Release|Win32
-		{015A0CF7-BA2D-344B-B9E3-4165A6E3CAD8}.Release|x86.Build.0 = Release|Win32
+		{46262D94-8F08-34DD-8817-F41E898E136A}.Debug|x64.ActiveCfg = Debug|x64
+		{46262D94-8F08-34DD-8817-F41E898E136A}.Debug|x64.Build.0 = Debug|x64
+		{46262D94-8F08-34DD-8817-F41E898E136A}.Debug|x86.ActiveCfg = Debug|Win32
+		{46262D94-8F08-34DD-8817-F41E898E136A}.Debug|x86.Build.0 = Debug|Win32
+		{46262D94-8F08-34DD-8817-F41E898E136A}.Release|x64.ActiveCfg = Release|x64
+		{46262D94-8F08-34DD-8817-F41E898E136A}.Release|x64.Build.0 = Release|x64
+		{46262D94-8F08-34DD-8817-F41E898E136A}.Release|x86.ActiveCfg = Release|Win32
+		{46262D94-8F08-34DD-8817-F41E898E136A}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
