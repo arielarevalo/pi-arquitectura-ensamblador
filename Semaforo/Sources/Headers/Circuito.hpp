@@ -111,40 +111,41 @@ void Circuito::controlar() {
 		PUSH EDI
 		PUSH ESI
 
-		LEA EDI, boton             // Lee el array de botones
-		LEA ESI, contr             // Lee el array para el controlador
+		LEA EDI, boton				// Lee el array de botones
+		LEA ESI, contr				// Lee el array para el controlador
 
 		XOR ECX, ECX
 
-		conBotones : CMP ECX, 3    // Compara el ECX a comparar
-		JG fin                     // Si es mayor que 3 da Fin
-		JMP compara                // Si no, lo manda a COMPARA
+conBotones:
+		CMP ECX, 3					// Compara el ECX a comparar
+		JG fin                      // Si es mayor que 3 da Fin
+		JMP compara                 // Si no, lo manda a COMPARA
 
-		compara : MOV AL, [EDI]    // Lee el dato del array de botones
-		CMP AL, 1                  // Compara el dato leido contra un 1
-		JE asigna                  // Si son iguales llama a ASIGNA 
-		JMP avanza                 // Si son distintos llama a AVANZA
+compara:
+		MOV AL, [EDI]				// Lee el dato del array de botones
+		CMP AL, 1                   // Compara el dato leido contra un 1
+		JE asigna                   // Si son iguales llama a ASIGNA 
+		JMP avanza                  // Si son distintos llama a AVANZA
 
-		asigna :
-		MOV pos_esta, 1
-			MOV[ESI], 1				   // Asigna como 1 el valor del array de control
-			MOV[EDI], 0                // Limpia la posicion del array de botones
-			INC EDI                    // Avanza en el array de botones
-			INC ESI                    // Avanza en el array de control
-			INC ECX                    // Aumenta el ECX
-			JMP conBotones             // Se devuelve al controlador
+asigna: MOV pos_esta, 1
+		MOV[ESI], 1					// Asigna como 1 el valor del array de control
+		MOV[EDI], 0					// Limpia la posicion del array de botones
+		INC EDI						// Avanza en el array de botones
+		INC ESI						// Avanza en el array de control
+		INC ECX						// Aumenta el ECX
+		JMP conBotones				// Se devuelve al controlador
 
-			avanza : MOV[ESI], 0       // Limpia la posicion en el array de control
-			MOV[EDI], 0                // Limpia la posicion en el array de botones
-			INC EDI                    // Avanza en el array de botones
-			INC ESI                    // Avanza en el array de control
-			INC ECX                    // Aumenta el ECX
-			JMP conBotones             // Se devuelve al controlador
+avanza: MOV[ESI], 0					// Limpia la posicion en el array de control
+		MOV[EDI], 0					// Limpia la posicion en el array de botones
+		INC EDI						// Avanza en el array de botones
+		INC ESI						// Avanza en el array de control
+		INC ECX						// Aumenta el ECX
+		JMP conBotones				// Se devuelve al controlador
 
-			fin : MOV ECX, 0           // Limpia el ECX para evitar basura
+fin:	MOV ECX, 0					// Limpia el ECX para evitar basura
 
-			POP ESI
-			POP EDI
+		POP ESI
+		POP EDI
 	}
 	Logger::info("Control de botones termina. Valor de salida", contr, TAM_CONTR);
 }
@@ -264,7 +265,7 @@ void Circuito::coordinar_0() {
 		DEC DL							// Fase de semáforo es uno menos a fase de circuito (0 => Peaton)
 		JMP fases
 
-		peaton : INC write				// Solicitar valor reciente al validador
+peaton: INC write						// Solicitar valor reciente al validador
 		PUSH ECX
 		CALL validar_o
 		POP ECX
@@ -275,18 +276,17 @@ void Circuito::coordinar_0() {
 		ADD AL, PEAT					//   Valor de fase al Acumulador
 		MOV DL, AL
 
-		fases :
-		PUSH ESI
-			MOV ECX, 3						// Número de bits del valor de salida al Contador
-			MOV ESI, OFFSET coord
+fases:  PUSH ESI
+		MOV ECX, 3						// Número de bits del valor de salida al Contador
+		MOV ESI, OFFSET coord
 
-			digito : XOR AL, AL				// Extraer un bit de la fase del Acumulador
-			RCR DL, 1
-			ADC AL, 0
-			MOV[ESI], AL					//   Valor de bit de la fase a salida coordinador
-			INC ESI
-			LOOP digito						// Tres bits en total
-			POP ESI
+digito: XOR AL, AL						// Extraer un bit de la fase del Acumulador
+		RCR DL, 1
+		ADC AL, 0
+		MOV[ESI], AL					//   Valor de bit de la fase a salida coordinador
+		INC ESI
+		LOOP digito						// Tres bits en total
+		POP ESI
 	}
 	Logger::info("Coordinación inicial termina. Valor de salida", coord, TAM_COORD);
 	__asm {
