@@ -70,7 +70,7 @@ const Coordinacion Circuito::coordinaciones[3]{ coordinar_0, coordinar_1, coordi
 uint8_t Circuito::boton[TAM_BOTON]{ 0,0,0,0 };
 uint8_t Circuito::contr[TAM_CONTR]{ 0,0,0,0 };
 uint8_t Circuito::val_i[TAM_VAL]{ 0,0 };
-uint8_t Circuito::dupl{ 0 };
+uint8_t Circuito::dupl{ 1 };
 
 uint8_t Circuito::val_o[TAM_VAL]{ 0,0 };
 uint8_t Circuito::write{ 0 };
@@ -196,7 +196,6 @@ void Circuito::validar_i() {
 			mov al, dupl
 			jmp resultado
 
-
 			com2 :
 
 		mov al, val_o[1]
@@ -222,75 +221,82 @@ void Circuito::validar_i() {
 }
 
 void Circuito::validar_o() {
-	Logger::info("Escribiendo validador. Valor de entrada", val_i, TAM_VAL);
+	Logger::info("Leyendo validador. Valor de entrada", val_i, TAM_VAL);
 	__asm {
-	dup1:
-		cmp dupl, 1
-			je resultado1
-			jmp wt
+		cmp write, 1
+		je wt
+		jmp resultado1
 
-
-			wt :
+	wt :
 		mov al, val_i[0]
-			mov val_o[0], al
-			mov al, val_i[1]
-			mov val_o[1], al
-			jmp resultado1
+		mov val_o[0], al
+		mov al, val_i[1]
+		mov val_o[1], al
+		mov dupl, 1
+		mov pos_esta, 0
+		jmp resultado1
 
-
-			resultado1 :
-		mov al, 0
-			jmp resultado2
-
-			resultado2 :
-		mov al, 0
-			mov pos_esta, 0
+	resultado1 :
 	}
-	Logger::info("Escritura validador termina. Valor de salida", val_o, TAM_VAL);
+	Logger::info("Lectura validador termina. Valor de salida", val_o, TAM_VAL);
 }
 
 void Circuito::coordinar_0() {
+	Logger::info("Semáforos en rojo.");
 	Logger::info("Coordinando. Banderín duplicado", dupl);
 	__asm {
+		MOV CL, fase
 		MOV AL, dupl					// Confirmar si dupl es cero
 		TEST AL, AL
-		MOV CL, fase
 		JZ peaton
+
+		INC fase						// Fase incrementa mod 4
+		XOR EDX, EDX
+		MOVZX EAX, fase
+		MOV EBX, 4
+		DIV EBX
+		MOV fase, DL
+
 		TEST CL, CL						// Confirmar si contador es cero
 		JZ peaton
-		MOV AL, CL						// Valor de fase al Acumulador
-		INC fase						// Contador de fase aumenta
+
+		MOV DL, CL						// Guardar valor de fase
+		DEC DL							// Fase de semáforo es uno menos a fase de circuito (0 => Peaton)
 		JMP fases
 
 		peaton : INC write				// Solicitar valor reciente al validador
-		PUSH CX
+		PUSH ECX
 		CALL validar_o
-		POP CX
+		POP ECX
 		DEC write
 		MOV AL, val_o[1]				// Extraer valor de salida del validador
 		SHL AL, 1
 		ADD AL, val_o[0]
 		ADD AL, PEAT					//   Valor de fase al Acumulador
-
-		fases : MOV fase, CL
-
-		PUSH ESI
-		MOV ECX, 3						// Número de bits del valor de salida al Contador
-		MOV ESI, OFFSET coord
 		MOV DL, AL
 
-		digito : XOR AL, AL				// Extraer un bit de la fase del Acumulador
-		RCR DL, 1
-		ADC AL, 0
-		MOV[ESI], AL					//   Valor de bit de la fase a salida coordinador
-		INC ESI
-		LOOP digito						// Tres bits en total
-		POP ESI
+		fases :
+		PUSH ESI
+			MOV ECX, 3						// Número de bits del valor de salida al Contador
+			MOV ESI, OFFSET coord
+
+			digito : XOR AL, AL				// Extraer un bit de la fase del Acumulador
+			RCR DL, 1
+			ADC AL, 0
+			MOV[ESI], AL					//   Valor de bit de la fase a salida coordinador
+			INC ESI
+			LOOP digito						// Tres bits en total
+			POP ESI
 	}
-	Logger::info("Coordinación termina. Valor de salida", coord, TAM_COORD);
+	Logger::info("Coordinación inicial termina. Valor de salida", coord, TAM_COORD);
+	__asm {
+		CALL salida
+	}
+	
 }
 
 void Circuito::coordinar_1() {
+	Logger::info("Esperando en verde.");
 	__asm {
 		MOV ECX, 5
 		delay30_0:
@@ -306,6 +312,7 @@ void Circuito::coordinar_1() {
 }
 
 void Circuito::coordinar_2() {
+	Logger::info("Esperando en amarillo.\n");
 	__asm {
 		MOV ECX, 2147483647
 		delay4:
@@ -316,6 +323,9 @@ void Circuito::coordinar_2() {
 void Circuito::decodificar() {
 	Logger::info("Decodificando. Valor de entrada", coord, TAM_COORD);
 	__asm {
+		PUSH ESI
+
+		MOV ESI,0
 		CMP coord[0],0			
         JG P1
         CMP coord[1],0
@@ -354,7 +364,9 @@ void Circuito::decodificar() {
         JMP RESULTADO			// Salta a resultado
 
         RESULTADO:	MOV DL,1    // Coloca un uno en la posicion que recibe de SI
-        MOV ruta_i[ESI],DL		
+        MOV ruta_i[ESI],DL
+
+		POP ESI
 	}
 	Logger::info("Decodificación termina. Valor de salida", ruta_i, TAM_RUTA);
 }
@@ -381,6 +393,7 @@ void Circuito::enrutar() {
 		JMP	finNo
 
 		finSi :
+		MOV [ESI + EBX],0
 		MOV ruta_o, BL
 
 		finNo :
