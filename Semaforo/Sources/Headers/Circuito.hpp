@@ -198,35 +198,27 @@ void Circuito::validar_i() {
 		//DUPL db ?
 		//resul db ?
 
-	com1:
+    COM1:	MOV AL, VAL_O[0]    	// Compara si VAL_O en pos 0 es igual a VAL_I en pos 0
+            CMP VAL_I[0], AL
+            JE COM2
+            MOV DUPL, 0
+            MOV AL, DUPL
+            JMP RESULTADO
 
-		mov al, val_o[0]
-			cmp val_i[0], al
-			je com2
-			mov dupl, 0
-			mov al, dupl
-			jmp resultado
+            
+    COM2 :  MOV AL, VAL_O[1]	  // Compara si VAL_O en pos 1 es igual a VAL_I en pos 1
+            CMP VAL_I[1], AL
+            JE DUP
+            MOV DUPL, 0
+            MOV AL, DUPL
+            JMP RESULTADO
 
+	DUP :	MOV DUPL, 1; DUPL = 1	// SI son iguales en ambas pos DUPL se enciende
+			MOV AL, DUPL; AL = 1
+			JMP RESULTADO
 
-			com2 :
+    RESULTADO :	MOV AL, 0
 
-		mov al, val_o[1]
-			cmp val_i[1], al
-			je dup
-			mov dupl, 0
-			mov al, dupl
-			jmp resultado
-
-
-			dup :
-
-		mov dupl, 1; dupl = 1
-			mov al, dupl; al = 1
-			jmp resultado
-
-
-			resultado :
-		mov al, 0
 
 	}
 	Logger::info("Validación de entrada termina. Banderín duplicado", dupl);
@@ -237,27 +229,22 @@ void Circuito::validar_o() {
 	__asm {
 		// VAL_O salida(WRITE)
 
-	dup1:
-		cmp dupl, 1
-			je resultado1
-			jmp wt
+	DUP1:  CMP DUPL, 1     // Si dupl esta encendido no escribe
+            JE RESULTADO1
+            JMP WT
 
+    WT :    MOV AL, VAL_I[0]    // Si dupl no esta encendido escribe lo que recibe
+            MOV VAL_O[0], AL
+            MOV AL, VAL_I[1]
+            MOV VAL_O[1], AL
+            JMP RESULTADO1
 
-			wt :
-		mov al, val_i[0]
-			mov val_o[0], al
-			mov al, val_i[1]
-			mov val_o[1], al
-			jmp resultado1
+    RESULTADO1 :MOV AL, 0
+                JMP RESULTADO2
 
+    RESULTADO2 :MOV AL, 0		// Limpia la posición
+                MOV POS_ESTA, 0
 
-			resultado1 :
-		mov al, 0
-			jmp resultado2
-
-			resultado2 :
-		mov al, 0
-			mov pos_esta, 0
 	}
 	Logger::info("Escritura validador termina. Valor de salida", val_o, TAM_VAL);
 }
