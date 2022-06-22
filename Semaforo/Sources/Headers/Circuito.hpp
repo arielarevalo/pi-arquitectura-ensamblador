@@ -152,35 +152,30 @@ void Circuito::controlar() {
 void Circuito::codificar() {
 	Logger::info("Codificando. Valor de entrada", contr, TAM_CONTR);
 	__asm {
-		// VAL_I codificador(CONTR)
-
-		/* peatonal  db 0,0,1,0 --->contr?
-			resul db ?,? ----------> val_i?
-			*/
-		MOV AL, 0 		   		// Si esta encendida pos 0 se sabe que corresponde a la 00 en binario y salta
-        MOV VAL_I[1], AL
-        MOV  VAL_I[0],AL
-        CMP CONTR[0],1
+		MOV AL, 0 		   		
+        MOV val_i[1], AL
+        MOV  val_i[0],AL
+        CMP contr[0],1			// Si esta encendida pos 0 se sabe que corresponde a la 00 en binario y salta
         JE RESULTADO1
         
-        MOV AL, 0				// Si esta encendida pos 1 se sabe que corresponde a la 10 en binario y salta
-        MOV  VAL_I[1], AL
+        MOV AL, 0				
+        MOV  val_i[1], AL
         MOV AL,1
-        MOV  VAL_I[0],AL
-        CMP CONTR[1],1
+        MOV  val_i[0],AL
+        CMP contr[1],1			// Si esta encendida pos 1 se sabe que corresponde a la 01 en binario y salta
         JE RESULTADO1
         
-        MOV AL, 1				// Si esta pos 2 encendida se sabe que corresponde a la 01 en binario y salta
-        MOV  VAL_I[1], AL
+        MOV AL, 1				
+        MOV  val_i[1], AL
         MOV AL,0
-        MOV  VAL_I[0],AL
-        CMP CONTR[2],1
+        MOV  val_i[0],AL
+        CMP contr[2],1			// Si esta pos 2 encendida se sabe que corresponde a la 10 en binario y salta
         JE RESULTADO1
         
-        MOV AL, 1				// Si esta encendida pos 3 se sabe que corresponde a la 11 en binario y salta
-        MOV  VAL_I[0], AL
-        MOV  VAL_I[1],AL
-        CMP CONTR[3],1
+        MOV AL, 1				
+        MOV  val_i[0], AL
+        MOV  val_i[1],AL
+        CMP contr[3],1			// Si esta encendida pos 3 se sabe que corresponde a la 11 en binario y salta
         JE RESULTADO1
 
     	RESULTADO1:	MOV AL,0	// Limpia el registro AL
@@ -192,12 +187,6 @@ void Circuito::codificar() {
 void Circuito::validar_i() {
 	Logger::info("Validando entrada. Valor de entrada", val_i, TAM_VAL);
 	__asm {
-		// DUPL entrada(VAL_I)
-		//entrada  db 1, 0
-		//salida  db 1, 1
-		//DUPL db ?
-		//resul db ?
-
 	com1:
 
 		mov al, val_o[0]
@@ -235,8 +224,6 @@ void Circuito::validar_i() {
 void Circuito::validar_o() {
 	Logger::info("Escribiendo validador. Valor de entrada", val_i, TAM_VAL);
 	__asm {
-		// VAL_O salida(WRITE)
-
 	dup1:
 		cmp dupl, 1
 			je resultado1
@@ -309,12 +296,12 @@ void Circuito::coordinar_1() {
 		delay30_0:
 		PUSH ECX
 
-			MOV ECX, 2147483647
-			delay30_1 :
-			LOOP delay30_1
+		MOV ECX, 2147483647
+		delay30_1 :
+		LOOP delay30_1
 
-			POP ECX
-			LOOP delay30_0
+		POP ECX
+		LOOP delay30_0
 	}
 }
 
@@ -329,50 +316,45 @@ void Circuito::coordinar_2() {
 void Circuito::decodificar() {
 	Logger::info("Decodificando. Valor de entrada", coord, TAM_COORD);
 	__asm {
-		// RUTA_I decodificador(COORD)
-
-		/*entrada  db 1,1,1 ------> coord
-   		resul db 8 dup ('0'),'$' ------> ruta_i
-   		aux db 0*/
-		CMP COORD[0],0			// Si las tres posiciones estan apagadas (000) salta a resultado
+		CMP coord[0],0			
         JG P1
-        CMP COORD[1],0
+        CMP coord[1],0
         JG P2
-        CMP COORD[2],0
+        CMP coord[2],0
         JG P5
-        JMP RESULTADO
+        JMP RESULTADO			// Si las tres posiciones estan apagadas (000) salta a resultado
         
-        P1:	CMP COORD[1],0		// Si posicion cero en el controlador de botones esta encendida y el resto apagadas (100)
-        JG P6					// Salta a resultado
-        CMP COORD[2],0
+        P1:	CMP coord[1],0		
+        JG P6					
+        CMP coord[2],0
         JG P3
-        MOV SI,1
-        JMP RESULTADO
-
-        P2:	CMP COORD[2],0		// Si posicion uno en el controlador de botones esta encendida y el resto apagadas (010)
-        JG P4					// Salta a resultado
-        MOV SI,2
-        JMP RESULTADO
-        
-        P3:	MOV SI,5			// Si posicion cero y dos en el controlador de botones estan encendidas y el resto apagadas (101)
+        MOV ESI,1				// Si posicion cero en el controlador de botones esta encendida y el resto apagadas (100)
         JMP RESULTADO			// Salta a resultado
 
-        P4:	MOV SI,6			// Si posicion uno y dos en el controlador de botones estan encendidas y el resto apagadas (011)
+        P2:	CMP coord[2],0		
+        JG P4					
+        MOV ESI,2				// Si posicion uno en el controlador de botones esta encendida y el resto apagadas (010)
         JMP RESULTADO			// Salta a resultado
         
-        P5:	MOV SI,4			// Si posicion dos en el controlador de botones esta encendida y el resto apagadas (001)
+        P3:	MOV ESI,5			// Si posicion cero y dos en el controlador de botones estan encendidas y el resto apagadas (101)
+        JMP RESULTADO			// Salta a resultado
+
+        P4:	MOV ESI,6			// Si posicion uno y dos en el controlador de botones estan encendidas y el resto apagadas (011)
         JMP RESULTADO			// Salta a resultado
         
-        P6:	CMP COORD[2],0		// Si posicion cero y uno en el controlador de botones estan encendidsa y el resto apagadas (110)
-        JG P7					// Salta a resultado
-        MOV SI,3
-        JMP RESULTADO
+        P5:	MOV ESI,4			// Si posicion dos en el controlador de botones esta encendida y el resto apagadas (001)
+        JMP RESULTADO			// Salta a resultado
         
-        P7:	MOV SI,7			// Si todas las posiciones en el controlador de botones estan encendidas (111), mueve un siete a SI
+        P6:	CMP coord[2],0		
+        JG P7					
+        MOV ESI,3				// Si posicion cero y uno en el controlador de botones estan encendidsa y el resto apagadas (110)
+        JMP RESULTADO			// Salta a resultado
+        
+        P7:	MOV ESI,7			// Si todas las posiciones en el controlador de botones estan encendidas (111), mueve un siete a SI
         JMP RESULTADO			// Salta a resultado
 
         RESULTADO:	MOV DL,1    // Coloca un uno en la posicion que recibe de SI
-        MOV RUTA_I[SI],DL		
+        MOV ruta_i[ESI],DL		
 	}
 	Logger::info("Decodificación termina. Valor de salida", ruta_i, TAM_RUTA);
 }
@@ -382,22 +364,29 @@ void Circuito::enrutar() {
 	__asm {
 		PUSH EDI
 		PUSH ESI
+		PUSH EBX
+
+		XOR EBX,EBX
 
 		MOV ECX, TAM_RUTA
 		LEA ESI, ruta_i
 		iterRuta :
 
-		MOV EBX, ECX - 1
-			CMP ESI[EBX], 1
-			JE	finSi
+		MOV EBX, ECX
+		DEC EBX
+		CMP [ESI + EBX], 1
+		JE	finSi
 
-			LOOP iterRuta
-			JMP	finNo
+		LOOP iterRuta
+		JMP	finNo
 
-			finSi :
-		MOV ruta_o, EBX
+		finSi :
+		MOV ruta_o, BL
 
-			finNo :
+		finNo :
+		POP EBX
+		POP ESI
+		POP EDI
 	}
 	Logger::info("Enrutamiento termina. Valor de salida", ruta_o);
 }

@@ -209,16 +209,16 @@ void Circuito::coordinar_0() {
 
 void Circuito::coordinar_1() {
 	__asm {
-		MOV ECX,5
+		MOV ECX, 5
 		delay30_0:
 		PUSH ECX
 
-		MOV ECX, 2147483647
-		delay30_1:
-		LOOP delay30_1
+			MOV ECX, 2147483647
+			delay30_1 :
+			LOOP delay30_1
 
-		POP ECX
-		LOOP delay30_0
+			POP ECX
+			LOOP delay30_0
 	}
 }
 
@@ -243,22 +243,29 @@ void Circuito::enrutar() {
 	__asm {
 		PUSH EDI
 		PUSH ESI
+		PUSH EBX
 
-		MOV ECX,TAM_RUTA
+		XOR EBX, EBX
+
+		MOV ECX, TAM_RUTA
 		LEA ESI, ruta_i
-		iterRuta:
+		iterRuta :
 
-		MOV EBX,ECX - 1
-		CMP ESI[EBX],1
-		JE	finSi
+		MOV EBX, ECX
+			DEC EBX
+			CMP[ESI + EBX], 1
+			JE	finSi
 
-		LOOP iterRuta
-		JMP	finNo
+			LOOP iterRuta
+			JMP	finNo
 
-		finSi :
-		MOV ruta_o,EBX
+			finSi :
+		MOV ruta_o, BL
 
-		finNo:
+			finNo :
+		POP EBX
+			POP ESI
+			POP EDI
 	}
 	Logger::info("Enrutamiento termina. Valor de salida", ruta_o);
 }

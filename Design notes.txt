@@ -1,0 +1,19 @@
+We ain't doing concurrency even if it technically is concurrent.
+
+In the end, despite the fact that it would be convenient, there were too many lingering questions
+around whether lambdas running from a listener would genuinely constitute a separate thread, and
+what that would mean for registers. It was deemed that to experiment with this approach first would
+slow down progress to an unacceptable degree, and it was instead chosen to opt for the simulated
+concurrency method.
+
+Turns out it wasn't even lambdas, it was QThreads.
+
+QThread backing Worker was an attractive option, but would have required plenty of reworking due to
+initial assumptions being more aligned with final model.
+
+Final cycle needs breaks in coordinator to process GUI events between ASM code. Entry is processed
+with each GUI event button press. [Turn protection pending!]
+
+Components are strongly coupled to circuit, weakly coupled to each other.
+Circuit is weakly coupled to interface.
+Interface is weakly couple to circuit.
