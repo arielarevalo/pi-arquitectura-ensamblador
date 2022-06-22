@@ -2,7 +2,7 @@
 .model small
 .stack 512
 .data
-   entrada  db 0,0,1
+   entrada  db 0,1,1
    resul db 8 dup ('0'),'$'
    aux db 0
   .code
@@ -25,7 +25,7 @@
   jg p6
   cmp entrada[2],0
   jg p3
-  mov SI,4
+  mov SI,1
   jmp resultado
   ret
   p1 endp
@@ -47,13 +47,13 @@
   
    p4 proc
   
-   mov SI,3
+   mov SI,6
   jmp resultado
   ret
   p4 endp
   
    p5 proc
-   mov SI,1
+   mov SI,4
   jmp resultado
   ret
   p5 endp
@@ -61,7 +61,7 @@
    p6 proc
   cmp entrada[2],0
   jg p7
-  mov SI,6
+  mov SI,3
   jmp resultado
   ret
   p6 endp
