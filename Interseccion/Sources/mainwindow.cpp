@@ -1,5 +1,6 @@
-#include "Sources/Headers/mainwindow.h"
+﻿#include "Sources/Headers/mainwindow.h"
 #include "Sources/Headers/ui_mainwindow.h"
+#include <QMovie>
 #include <QTime>
 
 MainWindow::MainWindow(QWidget* parent)
@@ -138,19 +139,19 @@ void MainWindow::ronda0Verde()
     ui->IzqSur->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularVerde/Vehiculares/IzqSurVerde.png'/></p></body></html>"));
     ui->IzqSur->setTextFormat(Qt::RichText);
 
-    /*!Abajo croquis!*/
+    /*!Abajo croquis
     ui->Sur3->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularVerde/Vehiculares/SurVerde.png'/></p></body></html>"));
     ui->Sur3->setTextFormat(Qt::RichText);
     ui->Sur4->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularVerde/Vehiculares/SurVerde.png'/></p></body></html>"));
-    ui->Sur4->setTextFormat(Qt::RichText);
+    ui->Sur4->setTextFormat(Qt::RichText);!*/
 
-    /*!Derecha croquis!*/
+    /*!Derecha croquis
     ui->Este2->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularVerde/Vehiculares/EsteVerde.png'/></p></body></html>"));
-    ui->Este2->setTextFormat(Qt::RichText);
+    ui->Este2->setTextFormat(Qt::RichText);!*/
 
-    /*!Izquierda croquis!*/
+    /*!Izquierda croquis
     ui->Oeste1->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularVerde/Vehiculares/OesteVerde.png'/></p></body></html>"));
-    ui->Oeste1->setTextFormat(Qt::RichText);
+    ui->Oeste1->setTextFormat(Qt::RichText);!*/
 
     /*!Semaforos!*/
     ui->SV1A->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularVerde/Vehiculares/VerdeVN.png'/></p></body></html>"));
@@ -173,19 +174,19 @@ void MainWindow::ronda0Amarillo()
     ui->IzqSur->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularAmarillo/Vehiculares/IzqSurAmarillo.png'/></p></body></html>"));
     ui->IzqSur->setTextFormat(Qt::RichText);
 
-    /*!Abajo croquis!*/
+    /*!Abajo croquis
     ui->Sur3->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularAmarillo/Vehiculares/SurAmarillo.png'/></p></body></html>"));
     ui->Sur3->setTextFormat(Qt::RichText);
     ui->Sur4->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularAmarillo/Vehiculares/SurAmarillo.png'/></p></body></html>"));
-    ui->Sur4->setTextFormat(Qt::RichText);
+    ui->Sur4->setTextFormat(Qt::RichText);!*/
 
-    /*!Derecha croquis!*/
+    /*!Derecha croquis
     ui->Este2->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularAmarillo/Vehiculares/EsteAmarillo.png'/></p></body></html>"));
-    ui->Este2->setTextFormat(Qt::RichText);
+    ui->Este2->setTextFormat(Qt::RichText);!*/
 
-    /*!Izquierda croquis!*/
+    /*!Izquierda croquis
     ui->Oeste1->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularAmarillo/Vehiculares/OesteAmarillo.png'/></p></body></html>"));
-    ui->Oeste1->setTextFormat(Qt::RichText);
+    ui->Oeste1->setTextFormat(Qt::RichText);!*/
 
     /*!Semaforos!*/
     ui->SV1A->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularAmarillo/Vehiculares/AmarilloV.png'/></p></body></html>"));
@@ -206,19 +207,19 @@ void MainWindow::ronda0Rojo()
     ui->IzqSur->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularRojo/Vehiculares/IzqSurRojo.png'/></p></body></html>"));
     ui->IzqSur->setTextFormat(Qt::RichText);
 
-    /*! Abajo del croquis!*/
+    /*! Abajo del croquis
     ui->Sur3->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularRojo/Vehiculares/SurRojo.png'/></p></body></html>"));
     ui->Sur3->setTextFormat(Qt::RichText);
     ui->Sur4->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularRojo/Vehiculares/SurRojo.png'/></p></body></html>"));
-    ui->Sur4->setTextFormat(Qt::RichText);
+    ui->Sur4->setTextFormat(Qt::RichText);!*/
 
-    /*!Derecha croquis!*/
+    /*!Derecha croquis
     ui->Este2->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularRojo/Vehiculares/EsteRojo.png'/></p></body></html>"));
-    ui->Este2->setTextFormat(Qt::RichText);
+    ui->Este2->setTextFormat(Qt::RichText);!*/
 
-    /*!Izquierda croquis!*/
+    /*!Izquierda croquis
     ui->Oeste1->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularRojo/Vehiculares/OesteRojo.png'/></p></body></html>"));
-    ui->Oeste1->setTextFormat(Qt::RichText);
+    ui->Oeste1->setTextFormat(Qt::RichText);!*/
 
     /*!Semaforos!*/
     ui->SV1A->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularRojo/Vehiculares/RojoVN.png'/></p></body></html>"));
@@ -234,22 +235,22 @@ void MainWindow::ronda1Verde()
     /*!Izquierda croquis!*/
     ui->Este1->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularVerde/Vehiculares/EsteDrcVerde.png'/></p></body></html>"));
     ui->Este1->setTextFormat(Qt::RichText);
-    ui->Oeste1->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularVerde/Vehiculares/OesteVerde.png'/></p></body></html>"));
-    ui->Oeste1->setTextFormat(Qt::RichText);
+    /*!ui->Oeste1->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularVerde/Vehiculares/OesteVerde.png'/></p></body></html>"));
+    ui->Oeste1->setTextFormat(Qt::RichText);!*/
 
     /*!Derecha croquis!*/
-    ui->Este2->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularVerde/Vehiculares/EsteVerde.png'/></p></body></html>"));
-    ui->Este2->setTextFormat(Qt::RichText);
+    /*!ui->Este2->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularVerde/Vehiculares/EsteVerde.png'/></p></body></html>"));
+    ui->Este2->setTextFormat(Qt::RichText);!*/
     ui->Oeste2->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularVerde/Vehiculares/OesteDrcVerde.png'/></p></body></html>"));
     ui->Oeste2->setTextFormat(Qt::RichText);
 
-    /*!Arriba croquis!*/
+    /*!Arriba croquis
     ui->Norte2->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularVerde/Vehiculares/NorteVerde.png'/></p></body></html>"));
-    ui->Norte2->setTextFormat(Qt::RichText);
+    ui->Norte2->setTextFormat(Qt::RichText);!*/
 
-    /*!Abajo croquis!*/
+    /*!Abajo croquis
     ui->Sur3->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularVerde/Vehiculares/SurVerde.png'/></p></body></html>"));
-    ui->Sur3->setTextFormat(Qt::RichText);
+    ui->Sur3->setTextFormat(Qt::RichText);!*/
 
     /*!Semaforos!*/
     ui->SV2A->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularVerde/Vehiculares/VerdeHO.png'/></p></body></html>"));
@@ -266,22 +267,22 @@ void MainWindow::ronda1Amarillo()
     /*!Izquierda croquis!*/
     ui->Este1->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularAmarillo/Vehiculares/EsteDrcAmarillo.png'/></p></body></html>"));
     ui->Este1->setTextFormat(Qt::RichText);
-    ui->Oeste1->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularAmarillo/Vehiculares/OesteAmarillo.png'/></p></body></html>"));
-    ui->Oeste1->setTextFormat(Qt::RichText);
+    /*!ui->Oeste1->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularAmarillo/Vehiculares/OesteAmarillo.png'/></p></body></html>"));
+    ui->Oeste1->setTextFormat(Qt::RichText);!*/
 
     /*!Derecha croquis!*/
-    ui->Este2->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularAmarillo/Vehiculares/EsteAmarillo.png'/></p></body></html>"));
-    ui->Este2->setTextFormat(Qt::RichText);
+    /*!ui->Este2->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularAmarillo/Vehiculares/EsteAmarillo.png'/></p></body></html>"));
+    ui->Este2->setTextFormat(Qt::RichText);!*/
     ui->Oeste2->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularAmarillo/Vehiculares/OesteDrcAmarillo.png'/></p></body></html>"));
     ui->Oeste2->setTextFormat(Qt::RichText);
 
-    /*!Arriba croquis!*/
+    /*!Arriba croquis
     ui->Norte2->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularAmarillo/Vehiculares/NorteAmarillo.png'/></p></body></html>"));
-    ui->Norte2->setTextFormat(Qt::RichText);
+    ui->Norte2->setTextFormat(Qt::RichText);!*/
 
-    /*!Abajo croquis!*/
+    /*!Abajo croquis
     ui->Sur3->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularAmarillo/Vehiculares/SurAmarillo.png'/></p></body></html>"));
-    ui->Sur3->setTextFormat(Qt::RichText);
+    ui->Sur3->setTextFormat(Qt::RichText);!*/
 
     /*!Semaforos!*/
     ui->SV2A->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularAmarillo/Vehiculares/AmarilloH.png'/></p></body></html>"));
@@ -297,22 +298,22 @@ void MainWindow::ronda1Rojo()
     /*!Izquierda croquis!*/
     ui->Este1->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularRojo/Vehiculares/EsteDrcRojo.png'/></p></body></html>"));
     ui->Este1->setTextFormat(Qt::RichText);
-    ui->Oeste1->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularRojo/Vehiculares/OesteRojo.png'/></p></body></html>"));
-    ui->Oeste1->setTextFormat(Qt::RichText);
+    /*!ui->Oeste1->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularRojo/Vehiculares/OesteRojo.png'/></p></body></html>"));
+    ui->Oeste1->setTextFormat(Qt::RichText);!*/
 
     /*!Derecha croquis!*/
-    ui->Este2->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularRojo/Vehiculares/EsteRojo.png'/></p></body></html>"));
-    ui->Este2->setTextFormat(Qt::RichText);
+    /*!ui->Este2->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularRojo/Vehiculares/EsteRojo.png'/></p></body></html>"));
+    ui->Este2->setTextFormat(Qt::RichText);!*/
     ui->Oeste2->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularRojo/Vehiculares/OesteDrcRojo.png'/></p></body></html>"));
     ui->Oeste2->setTextFormat(Qt::RichText);
 
-    /*!Arriba croquis!*/
+    /*!Arriba croquis
     ui->Norte2->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularRojo/Vehiculares/NorteRojo.png'/></p></body></html>"));
-    ui->Norte2->setTextFormat(Qt::RichText);
+    ui->Norte2->setTextFormat(Qt::RichText);!*/
 
-    /*!Abajo croquis!*/
+    /*!Abajo croquis
     ui->Sur3->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularRojo/Vehiculares/SurRojo.png'/></p></body></html>"));
-    ui->Sur3->setTextFormat(Qt::RichText);
+    ui->Sur3->setTextFormat(Qt::RichText);!*/
 
     /*!Semaforos!*/
     ui->SV2A->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularRojo/Vehiculares/RojoHO.png'/></p></body></html>"));
@@ -334,17 +335,17 @@ void MainWindow::ronda2Verde()
     ui->IzqNorte->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularVerde/Vehiculares/IzqNorteVerde.png'/></p></body></html>"));
     ui->IzqNorte->setTextFormat(Qt::RichText);
 
-    /*!Arriba croquis!*/
+    /*!Arriba croquis
     ui->Norte1->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularVerde/Vehiculares/NorteVerde.png'/></p></body></html>"));
     ui->Norte1->setTextFormat(Qt::RichText);
     ui->Norte2->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularVerde/Vehiculares/NorteVerde.png'/></p></body></html>"));
-    ui->Norte2->setTextFormat(Qt::RichText);
+    ui->Norte2->setTextFormat(Qt::RichText);!*/
 
-    /*!Derecha croquis!*/
+    /*!Derecha croquis
     ui->Oeste1->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularVerde/Vehiculares/OesteVerde.png'/></p></body></html>"));
     ui->Oeste1->setTextFormat(Qt::RichText);
     ui->Este2->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularVerde/Vehiculares/EsteVerde.png'/></p></body></html>"));
-    ui->Este2->setTextFormat(Qt::RichText);
+    ui->Este2->setTextFormat(Qt::RichText);!*/
 
     /*!Semaforos!*/
     ui->SV1B->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularVerde/Vehiculares/VerdeVS.png'/></p></body></html>"));
@@ -366,17 +367,17 @@ void MainWindow::ronda2Amarillo()
     ui->IzqNorte->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularAmarillo/Vehiculares/IzqNorteAmarillo.png'/></p></body></html>"));
     ui->IzqNorte->setTextFormat(Qt::RichText);
 
-    /*!Arriba croquis!*/
+    /*!Arriba croquis
     ui->Norte1->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularAmarillo/Vehiculares/NorteAmarillo.png'/></p></body></html>"));
     ui->Norte1->setTextFormat(Qt::RichText);
     ui->Norte2->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularAmarillo/Vehiculares/NorteAmarillo.png'/></p></body></html>"));
-    ui->Norte2->setTextFormat(Qt::RichText);
+    ui->Norte2->setTextFormat(Qt::RichText);!*/
 
-    /*!Derecha croquis!*/
+    /*!Derecha croquis
     ui->Oeste1->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularAmarillo/Vehiculares/OesteAmarillo.png'/></p></body></html>"));
     ui->Oeste1->setTextFormat(Qt::RichText);
     ui->Este2->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularAmarillo/Vehiculares/EsteAmarillo.png'/></p></body></html>"));
-    ui->Este2->setTextFormat(Qt::RichText);
+    ui->Este2->setTextFormat(Qt::RichText);!*/
 
     /*!Semaforos!*/
     ui->SV1B->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularAmarillo/Vehiculares/AmarilloV.png'/></p></body></html>"));
@@ -399,17 +400,17 @@ void MainWindow::ronda2Rojo()
     ui->IzqNorte->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularRojo/Vehiculares/IzqNorteRojo.png'/></p></body></html>"));
     ui->IzqNorte->setTextFormat(Qt::RichText);
 
-    /*!Arriba croquis!*/
+    /*!Arriba croquis
     ui->Norte1->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularRojo/Vehiculares/NorteRojo.png'/></p></body></html>"));
     ui->Norte1->setTextFormat(Qt::RichText);
     ui->Norte2->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularRojo/Vehiculares/NorteRojo.png'/></p></body></html>"));
-    ui->Norte2->setTextFormat(Qt::RichText);
+    ui->Norte2->setTextFormat(Qt::RichText);!*/
 
-    /*!Derecha croquis!*/
+    /*!Derecha croquis
     ui->Oeste1->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularRojo/Vehiculares/OesteRojo.png'/></p></body></html>"));
     ui->Oeste1->setTextFormat(Qt::RichText);
     ui->Este2->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularRojo/Vehiculares/EsteRojo.png'/></p></body></html>"));
-    ui->Este2->setTextFormat(Qt::RichText);
+    ui->Este2->setTextFormat(Qt::RichText);!*/
 
     /*!Semaforos!*/
     ui->SV1B->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularRojo/Vehiculares/RojoVS.png'/></p></body></html>"));
@@ -422,19 +423,19 @@ void MainWindow::ronda2Rojo()
 
 /*!Rondas Peatonales!*/
 
-/*!Ronda 3 peatonal - Verde!*/
+/*!Ronda 3 de Peatonal - Verde!*/
 void MainWindow::ronda3Verde()
 {
     /*! Transito !*/
     /*! Izquierda croquis!*/
     ui->Este1->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularVerde/Vehiculares/EsteDrcVerde.png'/></p></body></html>"));
     ui->Este1->setTextFormat(Qt::RichText);
-    ui->Este2->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularVerde/Vehiculares/EsteVerde.png'/></p></body></html>"));
-    ui->Este2->setTextFormat(Qt::RichText);
+    /*!ui->Este2->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularVerde/Vehiculares/EsteVerde.png'/></p></body></html>"));
+    ui->Este2->setTextFormat(Qt::RichText);!*/
 
-    /*! Abajo del croquis!*/
+    /*! Abajo del croquis
     ui->Sur3->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularVerde/Vehiculares/SurVerde.png'/></p></body></html>"));
-    ui->Sur3->setTextFormat(Qt::RichText);
+    ui->Sur3->setTextFormat(Qt::RichText);!*/
 
     /*!Semaforo!*/
     ui->SV2A->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularVerde/Vehiculares/VerdeHO.png'/></p></body></html>"));
@@ -451,19 +452,19 @@ void MainWindow::ronda3Verde()
     ui->SP1B->setTextFormat(Qt::RichText);
 }
 
-/*!Ronda 3 peatonal - Amarillo!*/
+/*!Ronda 3 de Peatonal - Amarillo!*/
 void MainWindow::ronda3Amarillo()
 {
     /*! Transito !*/
     /*! Izquierda croquis!*/
     ui->Este1->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularAmarillo/Vehiculares/EsteDrcAmarillo.png'/></p></body></html>"));
     ui->Este1->setTextFormat(Qt::RichText);
-    ui->Este2->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularAmarillo/Vehiculares/EsteAmarillo.png'/></p></body></html>"));
-    ui->Este2->setTextFormat(Qt::RichText);
+    /*!ui->Este2->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularAmarillo/Vehiculares/EsteAmarillo.png'/></p></body></html>"));
+    ui->Este2->setTextFormat(Qt::RichText);!*/
 
-    /*! Abajo del croquis!*/
+    /*! Abajo del croquis
     ui->Sur3->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularAmarillo/Vehiculares/SurAmarillo.png'/></p></body></html>"));
-    ui->Sur3->setTextFormat(Qt::RichText);
+    ui->Sur3->setTextFormat(Qt::RichText);!*/
 
     /*!Semaforo!*/
     ui->SV2A->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularAmarillo/Vehiculares/AmarilloH.png'/></p></body></html>"));
@@ -474,25 +475,25 @@ void MainWindow::ronda3Amarillo()
     ui->PTNorte->setTextFormat(Qt::RichText);
 
     /*!Semaforos!*/
-    ui->SP1A->setText(QString::fromUtf8("<html><head/><body><p><img src=':/PeatonalRojo/Peatonales/SR.png'/></p></body></html>"));
-    ui->SP1A->setTextFormat(Qt::RichText);
-    ui->SP1B->setText(QString::fromUtf8("<html><head/><body><p><img src=':/PeatonalRojo/Peatonales/SR.png'/></p></body></html>"));
-    ui->SP1B->setTextFormat(Qt::RichText);
+    QMovie *mov= new QMovie(":/PeatonalVerde/Peatonales/peatonalGif.gif");
+    mov->start();
+    ui->SP1A->setMovie(mov);
+    ui->SP1B->setMovie(mov);
 }
 
-/*!Ronda 3 peatonal - Rojo!*/
+/*!Ronda 3 de Peatonal - Rojo!*/
 void MainWindow::ronda3Rojo()
 {
     /*! Transito !*/
     /*! Izquierda croquis!*/
     ui->Este1->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularRojo/Vehiculares/EsteDrcRojo.png'/></p></body></html>"));
     ui->Este1->setTextFormat(Qt::RichText);
-    ui->Este2->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularRojo/Vehiculares/EsteRojo.png'/></p></body></html>"));
-    ui->Este2->setTextFormat(Qt::RichText);
+    /*!ui->Este2->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularRojo/Vehiculares/EsteRojo.png'/></p></body></html>"));
+    ui->Este2->setTextFormat(Qt::RichText);!*/
 
-    /*! Abajo del croquis!*/
+    /*! Abajo del croquis
     ui->Sur3->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularRojo/Vehiculares/SurRojo.png'/></p></body></html>"));
-    ui->Sur3->setTextFormat(Qt::RichText);
+    ui->Sur3->setTextFormat(Qt::RichText);!*/
 
     /*!Semaforo!*/
     ui->SV2A->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularRojo/Vehiculares/RojoHO.png'/></p></body></html>"));
@@ -519,15 +520,15 @@ void MainWindow::ronda4Verde()
     ui->Sur2->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularVerde/Vehiculares/SurVerde.png'/></p></body></html>"));
     ui->Sur2->setTextFormat(Qt::RichText);
 
-    /*! Abajo croquis!*/
+    /*! Abajo croquis
     ui->Sur3->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularVerde/Vehiculares/SurVerde.png'/></p></body></html>"));
     ui->Sur3->setTextFormat(Qt::RichText);
     ui->Sur4->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularVerde/Vehiculares/SurVerde.png'/></p></body></html>"));
-    ui->Sur4->setTextFormat(Qt::RichText);
+    ui->Sur4->setTextFormat(Qt::RichText);!*/
 
-    /*! Izquierda croquis!*/
+    /*! Izquierda croquis
     ui->Oeste1->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularVerde/Vehiculares/OesteVerde.png'/></p></body></html>"));
-    ui->Oeste1->setTextFormat(Qt::RichText);
+    ui->Oeste1->setTextFormat(Qt::RichText);!*/
 
     /*!Semaforo!*/
     ui->SV1A->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularVerde/Vehiculares/VerdeVN.png'/></p></body></html>"));
@@ -554,15 +555,15 @@ void MainWindow::ronda4Amarillo()
     ui->Sur2->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularAmarillo/Vehiculares/SurAmarillo.png'/></p></body></html>"));
     ui->Sur2->setTextFormat(Qt::RichText);
 
-    /*! Abajo croquis!*/
+    /*! Abajo croquis
     ui->Sur3->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularAmarillo/Vehiculares/SurAmarillo.png'/></p></body></html>"));
     ui->Sur3->setTextFormat(Qt::RichText);
     ui->Sur4->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularAmarillo/Vehiculares/SurAmarillo.png'/></p></body></html>"));
-    ui->Sur4->setTextFormat(Qt::RichText);
+    ui->Sur4->setTextFormat(Qt::RichText);!*/
 
-    /*! Izquierda croquis!*/
+    /*! Izquierda croquis
     ui->Oeste1->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularAmarillo/Vehiculares/OesteAmarillo.png'/></p></body></html>"));
-    ui->Oeste1->setTextFormat(Qt::RichText);
+    ui->Oeste1->setTextFormat(Qt::RichText);!*/
 
     /*!Semaforo!*/
     ui->SV1A->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularAmarillo/Vehiculares/AmarilloV.png'/></p></body></html>"));
@@ -573,10 +574,10 @@ void MainWindow::ronda4Amarillo()
     ui->PTEste->setTextFormat(Qt::RichText);
 
     /*!Semaforos!*/
-    ui->SP4A->setText(QString::fromUtf8("<html><head/><body><p><img src=':/PeatonalRojo/Peatonales/SR.png'/></p></body></html>"));
-    ui->SP4A->setTextFormat(Qt::RichText);
-    ui->SP4B->setText(QString::fromUtf8("<html><head/><body><p><img src=':/PeatonalRojo/Peatonales/SR.png'/></p></body></html>"));
-    ui->SP4B->setTextFormat(Qt::RichText);
+    QMovie *mov= new QMovie(":/PeatonalVerde/Peatonales/peatonalGif.gif");
+    mov->start();
+    ui->SP4A->setMovie(mov);
+    ui->SP4B->setMovie(mov);
 }
 
 /*!Ronda 4 de Peatonal - Verde!*/
@@ -589,15 +590,15 @@ void MainWindow::ronda4Rojo()
     ui->Sur2->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularRojo/Vehiculares/SurRojo.png'/></p></body></html>"));
     ui->Sur2->setTextFormat(Qt::RichText);
 
-    /*! Abajo croquis!*/
+    /*! Abajo croquis
     ui->Sur3->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularRojo/Vehiculares/SurRojo.png'/></p></body></html>"));
     ui->Sur3->setTextFormat(Qt::RichText);
     ui->Sur4->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularRojo/Vehiculares/SurRojo.png'/></p></body></html>"));
-    ui->Sur4->setTextFormat(Qt::RichText);
+    ui->Sur4->setTextFormat(Qt::RichText);!*/
 
-    /*! Izquierda croquis!*/
+    /*! Izquierda croquis
     ui->Oeste1->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularRojo/Vehiculares/OesteRojo.png'/></p></body></html>"));
-    ui->Oeste1->setTextFormat(Qt::RichText);
+    ui->Oeste1->setTextFormat(Qt::RichText);!*/
 
     /*!Semaforo!*/
     ui->SV1A->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularRojo/Vehiculares/RojoVN.png'/></p></body></html>"));
@@ -622,13 +623,13 @@ void MainWindow::ronda5Verde()
     ui->Oeste2->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularVerde/Vehiculares/OesteDrcVerde.png'/></p></body></html>"));
     ui->Oeste2->setTextFormat(Qt::RichText);
 
-    /*! Arriba croquis!*/
+    /*! Arriba croquis
     ui->Norte2->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularVerde/Vehiculares/NorteVerde.png'/></p></body></html>"));
-    ui->Norte2->setTextFormat(Qt::RichText);
+    ui->Norte2->setTextFormat(Qt::RichText);!*/
 
-    /*! Izquierda croquis!*/
+    /*! Izquierda croquis
     ui->Oeste1->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularVerde/Vehiculares/OesteVerde.png'/></p></body></html>"));
-    ui->Oeste1->setTextFormat(Qt::RichText);
+    ui->Oeste1->setTextFormat(Qt::RichText);!*/
 
     /*!Semaforo!*/
     ui->SV2B->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularVerde/Vehiculares/VerdeHE.png'/></p></body></html>"));
@@ -653,13 +654,13 @@ void MainWindow::ronda5Amarillo()
     ui->Oeste2->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularAmarillo/Vehiculares/OesteDrcAmarillo.png'/></p></body></html>"));
     ui->Oeste2->setTextFormat(Qt::RichText);
 
-    /*! Arriba croquis!*/
+    /*! Arriba croquis
     ui->Norte2->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularAmarillo/Vehiculares/NorteAmarillo.png'/></p></body></html>"));
-    ui->Norte2->setTextFormat(Qt::RichText);
+    ui->Norte2->setTextFormat(Qt::RichText);!*/
 
-    /*! Izquierda croquis!*/
+    /*! Izquierda croquis
     ui->Oeste1->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularAmarillo/Vehiculares/OesteAmarillo.png'/></p></body></html>"));
-    ui->Oeste1->setTextFormat(Qt::RichText);
+    ui->Oeste1->setTextFormat(Qt::RichText);!*/
 
     /*!Semaforo!*/
     ui->SV2B->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularAmarillo/Vehiculares/AmarilloH.png'/></p></body></html>"));
@@ -670,10 +671,10 @@ void MainWindow::ronda5Amarillo()
     ui->PTSur->setTextFormat(Qt::RichText);
 
     /*!Semaforos!*/
-    ui->SP3A->setText(QString::fromUtf8("<html><head/><body><p><img src=':/PeatonalRojo/Peatonales/SR.png'/></p></body></html>"));
-    ui->SP3A->setTextFormat(Qt::RichText);
-    ui->SP3B->setText(QString::fromUtf8("<html><head/><body><p><img src=':/PeatonalRojo/Peatonales/SR.png'/></p></body></html>"));
-    ui->SP3B->setTextFormat(Qt::RichText);
+    QMovie *mov= new QMovie(":/PeatonalVerde/Peatonales/peatonalGif.gif");
+    mov->start();
+    ui->SP3A->setMovie(mov);
+    ui->SP3B->setMovie(mov);
 }
 
 /*!Ronda 5 de Peatonal - Rojo!*/
@@ -684,13 +685,13 @@ void MainWindow::ronda5Rojo()
     ui->Oeste2->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularRojo/Vehiculares/OesteDrcRojo.png'/></p></body></html>"));
     ui->Oeste2->setTextFormat(Qt::RichText);
 
-    /*! Arriba croquis!*/
+    /*! Arriba croquis
     ui->Norte2->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularRojo/Vehiculares/NorteRojo.png'/></p></body></html>"));
-    ui->Norte2->setTextFormat(Qt::RichText);
+    ui->Norte2->setTextFormat(Qt::RichText);!*/
 
-    /*! Izquierda croquis!*/
+    /*! Izquierda croquis
     ui->Oeste1->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularRojo/Vehiculares/OesteRojo.png'/></p></body></html>"));
-    ui->Oeste1->setTextFormat(Qt::RichText);
+    ui->Oeste1->setTextFormat(Qt::RichText);!*/
 
     /*!Semaforo!*/
     ui->SV2B->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularRojo/Vehiculares/RojoHE.png'/></p></body></html>"));
@@ -707,7 +708,7 @@ void MainWindow::ronda5Rojo()
     ui->SP3B->setTextFormat(Qt::RichText);
 }
 
-/*!Ronda 6 de Peatona - Verde!*/
+/*!Ronda 6 de Peatonal - Verde!*/
 void MainWindow::ronda6Verde()
 {
     /*! Transito !*/
@@ -717,15 +718,15 @@ void MainWindow::ronda6Verde()
     ui->Norte3->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularVerde/Vehiculares/NorteVerde.png'/></p></body></html>"));
     ui->Norte3->setTextFormat(Qt::RichText);
 
-    /*! Derecha croquis!*/
+    /*! Derecha croquis
     ui->Este2->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularVerde/Vehiculares/EsteVerde.png'/></p></body></html>"));
-    ui->Este2->setTextFormat(Qt::RichText);
+    ui->Este2->setTextFormat(Qt::RichText);!*/
 
-    /*! Arriba croquis!*/
+    /*! Arriba croquis
     ui->Norte1->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularVerde/Vehiculares/NorteVerde.png'/></p></body></html>"));
     ui->Norte1->setTextFormat(Qt::RichText);
     ui->Norte2->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularVerde/Vehiculares/NorteVerde.png'/></p></body></html>"));
-    ui->Norte2->setTextFormat(Qt::RichText);
+    ui->Norte2->setTextFormat(Qt::RichText);!*/
 
     /*!Semaforo!*/
     ui->SV1B->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularVerde/Vehiculares/VerdeVS.png'/></p></body></html>"));
@@ -742,7 +743,7 @@ void MainWindow::ronda6Verde()
     ui->SP2B->setTextFormat(Qt::RichText);
 }
 
-/*!Ronda 6 de Peatona - Amarillo!*/
+/*!Ronda 6 de Peatonal - Amarillo!*/
 void MainWindow::ronda6Amarillo()
 {
     /*! Transito !*/
@@ -752,15 +753,15 @@ void MainWindow::ronda6Amarillo()
     ui->Norte3->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularAmarillo/Vehiculares/NorteAmarillo.png'/></p></body></html>"));
     ui->Norte3->setTextFormat(Qt::RichText);
 
-    /*! Derecha croquis!*/
+    /*! Derecha croquis
     ui->Este2->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularAmarillo/Vehiculares/EsteAmarillo.png'/></p></body></html>"));
-    ui->Este2->setTextFormat(Qt::RichText);
+    ui->Este2->setTextFormat(Qt::RichText);!*/
 
-    /*! Arriba croquis!*/
+    /*! Arriba croquis
     ui->Norte1->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularAmarillo/Vehiculares/NorteAmarillo.png'/></p></body></html>"));
     ui->Norte1->setTextFormat(Qt::RichText);
     ui->Norte2->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularAmarillo/Vehiculares/NorteAmarillo.png'/></p></body></html>"));
-    ui->Norte2->setTextFormat(Qt::RichText);
+    ui->Norte2->setTextFormat(Qt::RichText);!*/
 
     /*!Semaforo!*/
     ui->SV1B->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularAmarillo/Vehiculares/AmarilloV.png'/></p></body></html>"));
@@ -771,13 +772,13 @@ void MainWindow::ronda6Amarillo()
     ui->PTOeste->setTextFormat(Qt::RichText);
 
     /*!Semaforos!*/
-    ui->SP2A->setText(QString::fromUtf8("<html><head/><body><p><img src=':/PeatonalRojo/Peatonales/SR.png'/></p></body></html>"));
-    ui->SP2A->setTextFormat(Qt::RichText);
-    ui->SP2B->setText(QString::fromUtf8("<html><head/><body><p><img src=':/PeatonalRojo/Peatonales/SR.png'/></p></body></html>"));
-    ui->SP2B->setTextFormat(Qt::RichText);
+    QMovie *mov= new QMovie(":/PeatonalVerde/Peatonales/peatonalGif.gif");
+    mov->start();
+    ui->SP2A->setMovie(mov);
+    ui->SP2B->setMovie(mov);
 }
 
-/*!Ronda 6 de Peatona - Rojo!*/
+/*!Ronda 6 de Peatonal - Rojo!*/
 void MainWindow::ronda6Rojo()
 {
     /*! Transito !*/
@@ -787,15 +788,15 @@ void MainWindow::ronda6Rojo()
     ui->Norte3->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularRojo/Vehiculares/NorteRojo.png'/></p></body></html>"));
     ui->Norte3->setTextFormat(Qt::RichText);
 
-    /*! Derecha croquis!*/
+    /*! Derecha croquis
     ui->Este2->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularRojo/Vehiculares/EsteRojo.png'/></p></body></html>"));
-    ui->Este2->setTextFormat(Qt::RichText);
+    ui->Este2->setTextFormat(Qt::RichText);!*/
 
-    /*! Arriba croquis!*/
+    /*! Arriba croquis
     ui->Norte1->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularRojo/Vehiculares/NorteRojo.png'/></p></body></html>"));
     ui->Norte1->setTextFormat(Qt::RichText);
     ui->Norte2->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularRojo/Vehiculares/NorteRojo.png'/></p></body></html>"));
-    ui->Norte2->setTextFormat(Qt::RichText);
+    ui->Norte2->setTextFormat(Qt::RichText);!*/
 
     /*!Semaforo!*/
     ui->SV1B->setText(QString::fromUtf8("<html><head/><body><p><img src=':/VehicularRojo/Vehiculares/RojoVS.png'/></p></body></html>"));

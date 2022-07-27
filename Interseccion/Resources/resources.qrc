@@ -3,6 +3,7 @@
         <file>Peatonales/Verde.png</file>
         <file>Peatonales/VerdeVertical.png</file>
         <file>Peatonales/SV.png</file>
+        <file>Peatonales/peatonalGif.gif</file>
     </qresource>
     <qresource prefix="/PeatonalRojo">
         <file>Peatonales/Rojo.png</file>
